@@ -142,13 +142,7 @@ export default function Component() {
             A narrative-first zk builder community
           </motion.p>
           <motion.div variants={itemVariants}>
-            {/* <Button
-              size="lg"
-              className="bg-[#BC6C25] hover:bg-[#283618] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 font-poppins"
-            >
-              Join the Witnesses
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button> */}
+        
             <div className="relative inline-block group">
               <Button
                 size="lg"
@@ -209,68 +203,89 @@ export default function Component() {
             </p>
           </motion.div>
         </motion.div>
+      <div className="flex justify-center w-full mt-8">
+          <div className="relative inline-block group">
+            <Button
+              size="lg"
+              className="hover:bg-[#BC6C25] bg-[#DDA15E] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 font-poppins"
+            >
+              Request Info Deck
+            </Button>
+            <span className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 text-xs font-mono bg-[#FEFAE0] text-[#BC6C25] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
+              &gt; request --deck
+            </span>
+          </div>
+      </div>
+
       </section>
 
-      {/* Values Section */}
-      <section ref={valuesRef} className="py-20">
-        <motion.div
-          className="max-w-6xl mx-auto px-6"
-          variants={containerVariants}
-          initial="hidden"
-          animate={valuesInView ? "visible" : "hidden"}
-        >
-          <motion.h2
-            className="text-4xl md:text-5xl font-display font-bold text-[#283618] text-center mb-16"
-            variants={itemVariants}
-          >
-            Why We <span className="italic text-[#BC6C25]">Exist</span>
-          </motion.h2>
+    <section ref={valuesRef} className="py-24 text-black relative">
+  {/* Noise overlay */}
+  <div className="absolute inset-0 z-0 bg-noise pointer-events-none"></div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Shield,
-                title: "Zero-Knowledge. Zero Fluff.",
-                description:
-                  "We believe in the power of cryptographic proofs over empty promises. Every claim is backed by verifiable evidence.",
-                color: "bg-[#BC6C25]",
-              },
-              {
-                icon: Zap,
-                title: "Infra over Hype.",
-                description:
-                  "Building the foundational layers that enable privacy-preserving applications at scale. Infrastructure first, marketing second.",
-                color: "bg-[#606C38]",
-              },
-              {
-                icon: Users,
-                title: "Proofs, not Promises.",
-                description:
-                  "Actions speak louder than words. We demonstrate value through working code and real-world implementations.",
-                color: "bg-[#DDA15E]",
-              },
-            ].map((value, index) => (
-              <motion.div key={index} variants={itemVariants}>
-                <Card className="p-8 h-full bg-white/50 backdrop-blur-sm border-2 border-transparent hover:border-[#BC6C25]/30 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                  <motion.div
-                    className={`w-16 h-16 ${value.color} rounded-full flex items-center justify-center mb-6 mx-auto`}
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <value.icon className="w-8 h-8 text-white" />
-                  </motion.div>
-                  <h3 className="text-xl font-bold text-[#283618] mb-4 text-center font-display">
-                    {value.title}
-                  </h3>
-                  <p className="text-[#606C38] text-center leading-relaxed font-poppins">
-                    {value.description}
-                  </p>
-                </Card>
-              </motion.div>
-            ))}
+  <motion.div
+    className="relative z-10 max-w-6xl mx-auto px-6"
+    variants={containerVariants}
+    initial="hidden"
+    animate={valuesInView ? "visible" : "hidden"}
+  >
+    <motion.h2
+      className="text-4xl md:text-5xl font-display font-bold text-center mb-16 text-[#1a1a1a]"
+      variants={itemVariants}
+    >
+      Why We <span className="italic text-[#BC6C25]">Exist</span>
+    </motion.h2>
+
+    <div className="grid md:grid-cols-3 gap-8">
+      {[
+        {
+          icon: Shield,
+          title: "Zero-Knowledge. Zero Fluff.",
+          description:
+            "Every claim is backed by verifiable proofs. No room for hype. Just math and logic.",
+          color: "bg-[#BC6C25]",
+        },
+        {
+          icon: Zap,
+          title: "Infra over Hype.",
+          description:
+            "We build core rails — the trustless infra that future zk apps depend on.",
+          color: "bg-[#606C38]",
+        },
+        {
+          icon: Users,
+          title: "Proofs, not Promises.",
+          description:
+            "We deliver code, not decks. Everything is transparent, verifiable, on-chain.",
+          color: "bg-[#DDA15E]",
+        },
+      ].map((value, index) => (
+        <motion.div key={index} variants={itemVariants}>
+          <div className="relative bg-white border border-[#e0e0e0] p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:border-[#BC6C25] group">
+            <div
+              className={`w-12 h-12 ${value.color} rounded flex items-center justify-center mb-4`}
+            >
+              <value.icon className="w-6 h-6 text-white" />
+            </div>
+
+            <h3 className="text-md font-mono text-[#1f1f1f] mb-2 font-semibold">
+              <span className="text-[#BC6C25]">$</span> {value.title}
+            </h3>
+
+            <p className="text-sm font-mono text-[#444] leading-relaxed">
+              {value.description}
+            </p>
+
+            <div className="mt-4 text-xs font-mono text-[#666] opacity-0 group-hover:opacity-100 transition">
+              <span className="text-[#BC6C25]">#</span> proof --verified
+            </div>
           </div>
         </motion.div>
-      </section>
+      ))}
+    </div>
+  </motion.div>
+</section>
+
 
       {/* Event Archive Section */}
       <section ref={archiveRef} className="py-20 bg-[#283618]/5">
