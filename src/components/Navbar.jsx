@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { LiaTelegram } from "react-icons/lia";
-import { RiMenu3Fill, RiTwitterXFill } from "react-icons/ri";
+import { RiMenu3Fill, RiTwitterXFill, RiSearchLine } from "react-icons/ri";
 import logo from "../assets/logo.png";
 import Image from "next/image";
+
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -41,7 +42,6 @@ function Navbar() {
       : "0 8px 32px rgba(221, 161, 94, 0.3)",
     borderRadius: scrolled ? "0rem" : "2rem",
     marginTop: scrolled ? "0rem" : "1rem",
-    // padding: scrolled ? "0.5rem 0" : "0",
     zIndex: 50,
     border: "none",
   };
@@ -104,12 +104,10 @@ function Navbar() {
       style={{ height: fixedHeight }}
     >
       <div className="px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
-        {/* Logo - No animations */}
         <div className="flex items-center gap-2">
           <Image src={logo} alt="PoW Logo" className="h-10 w-auto" />
         </div>
 
-        {/* Desktop Navigation - No animations */}
         <div className="hidden md:flex">
           <div className="flex gap-3">
             <Button
@@ -132,7 +130,6 @@ function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu Button - No text animations */}
         <div className="md:hidden">
           <button
             className="p-2 rounded-lg text-[#283618] hover:bg-[#283618]/10 transition-colors duration-200"
@@ -147,7 +144,6 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu - Container animation only */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -166,7 +162,6 @@ function Navbar() {
               borderRadius: scrolled ? "0 0 0 0" : "0 0 2rem 2rem",
             }}
           >
-            {/* Static menu content - No animations */}
             <div className="p-4 space-y-2">
               <Button
                 variant="ghost"

@@ -186,15 +186,23 @@ export default function Component() {
             variants={itemVariants}
           >
             <p className="text-xl font-medium">
-              Built for builders who prove, not pitch.
+              Welcome to Proof of Witness (PoW), where builders, researchers,
+              and protocols converge to transform zero-knowledge theory into
+              tangible reality.
             </p>
             <p>
-              We're a zk-native, IRL-first community focused on infrastructure
-              narratives that matter.
+              Our community thrives on deeply technical meetups, workshops, and
+              proof-driven sessions, ensuring that every interaction is
+              meaningful and impactful.
             </p>
             <p>
-              Where cryptographic proofs meet real-world impact, and privacy
-              enables presence.
+              Here, cryptographic proofs meet real-world applications, fostering
+              an environment where privacy empowers presence and every witness
+              truly counts.
+            </p>
+            <p>
+              Join us in a space where noise is filtered out, leaving only the
+              pure signal of innovation and collaboration.
             </p>
           </motion.div>
         </motion.div>
@@ -407,17 +415,10 @@ export default function Component() {
             privacy-preserving infrastructure.
           </p>
           <div className="flex justify-center items-center space-x-8 opacity-60">
-            <div className="w-24 h-12 bg-[#BC6C25]/20 rounded flex items-center justify-center">
-              <span className="text-[#283618] font-mono text-xs">ZK Labs</span>
-            </div>
-            <div className="w-24 h-12 bg-[#606C38]/20 rounded flex items-center justify-center">
+            {/* Placeholder for future partners */}
+            <div className="w-54 h-12 bg-[#BC6C25]/20 px-3 rounded flex items-center justify-center">
               <span className="text-[#283618] font-mono text-xs">
-                Privacy Co
-              </span>
-            </div>
-            <div className="w-24 h-12 bg-[#DDA15E]/20 rounded flex items-center justify-center">
-              <span className="text-[#283618] font-mono text-xs">
-                Proof Inc
+                Partnerships Coming Soon
               </span>
             </div>
           </div>
