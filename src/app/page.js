@@ -203,6 +203,8 @@ export default function Component() {
             </p>
           </motion.div>
         </motion.div>
+                  <motion.div variants={itemVariants}>
+
       <div className="flex justify-center w-full mt-8">
           <div className="relative inline-block group">
             <Button
@@ -216,13 +218,14 @@ export default function Component() {
             </span>
           </div>
       </div>
-
+</motion.div>
       </section>
 
-    <section ref={valuesRef} className="py-24 text-black relative">
+{/* why us */}
+    <section ref={valuesRef} className="py-24 text-black relative overflow-hidden">
   {/* Noise overlay */}
-  <div className="absolute inset-0 z-0 bg-noise pointer-events-none"></div>
-
+  <div className="absolute inset-0 z-0 bg-noise pointer-events-none" />
+<div className="relative z-10">
   <motion.div
     className="relative z-10 max-w-6xl mx-auto px-6"
     variants={containerVariants}
@@ -239,18 +242,18 @@ export default function Component() {
     <div className="grid md:grid-cols-3 gap-8">
       {[
         {
-          icon: Shield,
-          title: "Zero-Knowledge. Zero Fluff.",
-          description:
-            "Every claim is backed by verifiable proofs. No room for hype. Just math and logic.",
-          color: "bg-[#BC6C25]",
-        },
-        {
           icon: Zap,
           title: "Infra over Hype.",
           description:
             "We build core rails — the trustless infra that future zk apps depend on.",
           color: "bg-[#606C38]",
+        },
+          {
+          icon: Shield,
+          title: "Zero-Knowledge. Zero Fluff.",
+          description:
+            "Every claim is backed by verifiable proofs. No room for hype. Just math and logic.",
+          color: "bg-[#BC6C25]",
         },
         {
           icon: Users,
@@ -260,30 +263,38 @@ export default function Component() {
           color: "bg-[#DDA15E]",
         },
       ].map((value, index) => (
-        <motion.div key={index} variants={itemVariants}>
-          <div className="relative bg-white border border-[#e0e0e0] p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:border-[#BC6C25] group">
-            <div
-              className={`w-12 h-12 ${value.color} rounded flex items-center justify-center mb-4`}
-            >
-              <value.icon className="w-6 h-6 text-white" />
-            </div>
+       <motion.div key={index} variants={itemVariants}>
+        <motion.div
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+>
+  <div className="relative group bg-white border-l-4 border-[#BC6C25] p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+    <div className="absolute top-4 left-4 text-xs text-[#BC6C25] font-mono bg-[#fefae0] px-2 py-0.5 rounded">
+      $ proof
+    </div>
+    <div
+      className={`w-12 h-12 ${value.color} rounded-lg flex items-center justify-center mb-4 ml-auto`}
+    >
+      <value.icon className="w-6 h-6 text-white" />
+    </div>
+    <h3 className="text-lg font-mono text-[#283618] mb-2 pl-6">
+      <span className="text-[#BC6C25]">#</span> {value.title}
+    </h3>
+    <p className="text-sm font-mono text-[#606C38] leading-relaxed pl-6">
+      {value.description}
+    </p>
 
-            <h3 className="text-md font-mono text-[#1f1f1f] mb-2 font-semibold">
-              <span className="text-[#BC6C25]">$</span> {value.title}
-            </h3>
+    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 bg-gradient-to-br from-[#BC6C25]/10 via-[#DDA15E]/10 to-transparent pointer-events-none rounded-lg blur-md" />
+  </div>
+  </motion.div>
+</motion.div>
 
-            <p className="text-sm font-mono text-[#444] leading-relaxed">
-              {value.description}
-            </p>
-
-            <div className="mt-4 text-xs font-mono text-[#666] opacity-0 group-hover:opacity-100 transition">
-              <span className="text-[#BC6C25]">#</span> proof --verified
-            </div>
-          </div>
-        </motion.div>
       ))}
     </div>
   </motion.div>
+  </div>
 </section>
 
 
@@ -366,16 +377,35 @@ export default function Component() {
             </div>
           </motion.div>
 
-          <motion.div className="text-center mt-8" variants={itemVariants}>
-            <Button
+          {/* <motion.div className="text-center mt-8" variants={itemVariants}>
+           <Button
+              size="lg"
               variant="outline"
-              className="border-[#BC6C25] text-[#BC6C25] bg-transparent hover:bg-[#BC6C25] hover:text-white"
+              className="hover:bg-[#BC6C25] bg-[#DDA15E] hover:text-[#283618] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 font-poppins"
             >
               <IoLogoGithub className="w-4 h-4 mr-2" />
               Follow the Trail
             </Button>
-          </motion.div>
+          </motion.div> */}
+          
         </motion.div>
+         <motion.div variants={itemVariants}>
+  <div className="flex justify-center w-full mt-8">
+    <div className="relative inline-block group">
+      <Button
+        size="lg"
+        className="bg-[#BC6C25] hover:bg-[#606C38] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 font-poppins"
+      >
+        <IoLogoGithub className="w-4 h-4 mr-2" />
+        Follow the Trail
+      </Button>
+      <span className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 text-xs font-mono bg-[#FEFAE0] text-[#606C38] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
+        &gt; zk-events --watch	
+      </span>
+    </div>
+  </div>
+</motion.div>
+
       </section>
 
       {/* Community CTA */}
