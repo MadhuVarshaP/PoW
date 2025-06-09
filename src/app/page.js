@@ -2,10 +2,14 @@
 
 import { motion, useScroll, useTransform, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Github, MessageCircle, Twitter, ArrowRight, Terminal, Users, Shield, Zap } from "lucide-react"
+import {ArrowRight, Terminal, Users, Shield, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import Navbar from "@/components/Navbar"
+import Footer from "@/components/Footer"
+import { IoLogoGithub } from "react-icons/io"
+import { RiTwitterXFill } from "react-icons/ri"
+import { LiaTelegram } from "react-icons/lia"
 
 export default function Component() {
   const { scrollYProgress } = useScroll({
@@ -109,29 +113,41 @@ export default function Component() {
             A narrative-first zk builder community
           </motion.p>
           <motion.div variants={itemVariants}>
-            <Button
+            {/* <Button
               size="lg"
               className="bg-[#BC6C25] hover:bg-[#283618] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 font-inter"
             >
               Join the Witnesses
               <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
+            </Button> */}
+            <div className="relative inline-block group">
+<Button
+              size="lg"
+              className="bg-[#BC6C25] hover:bg-[#283618] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 font-inter"
+            >    Join the Witness
+    <ArrowRight className="w-5 h-5 ml-2" />
+  </Button>
+
+  <span className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 text-xs font-mono bg-[#DDA15E] text-black px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
+    $ rsvp --proof
+  </span>
+</div>
           </motion.div>
         </motion.div>
       </section>
 
       {/* About Section */}
-      <section ref={aboutRef} className="py-20 bg-[#283618]/5">
+      <section ref={aboutRef} className="py-20 bg-[#283618]">
         <motion.div
           className="max-w-4xl mx-auto px-6 text-center"
           variants={containerVariants}
           initial="hidden"
           animate={aboutInView ? "visible" : "hidden"}
         >
-          <motion.h2 className="text-4xl md:text-5xl font-display font-bold text-[#283618] mb-8" variants={itemVariants}>
-            About the <span className="italic">Community</span>
+          <motion.h2 className="text-4xl md:text-5xl font-display font-bold text-[#FEFAE0] mb-8" variants={itemVariants}>
+            About the <span className="italic text-[#DDA15E]">Community</span>
           </motion.h2>
-          <motion.div className="space-y-6 text-lg text-[#606C38]" variants={itemVariants}>
+          <motion.div className="space-y-6 text-lg text-[#FEFAE0]/90" variants={itemVariants}>
             <p className="text-xl font-medium">Built for builders who prove, not pitch.</p>
             <p>We're a zk-native, IRL-first community focused on infrastructure narratives that matter.</p>
             <p>Where cryptographic proofs meet real-world impact, and privacy enables presence.</p>
@@ -151,7 +167,7 @@ export default function Component() {
             className="text-4xl md:text-5xl font-display font-bold text-[#283618] text-center mb-16"
             variants={itemVariants}
           >
-            Why We <span className="italic">Exist</span>
+            Why We <span className="italic text-[#BC6C25]">Exist</span>
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -208,7 +224,7 @@ export default function Component() {
             className="text-4xl md:text-5xl font-display font-bold text-[#283618] text-center mb-16"
             variants={itemVariants}
           >
-            <span className="italic">Proof</span> Logs
+            <span className="italic text-[#BC6C25]">Proof</span> Logs
           </motion.h2>
 
           <motion.div className="bg-[#283618] rounded-lg p-8 font-mono text-sm" variants={itemVariants}>
@@ -239,8 +255,8 @@ export default function Component() {
           </motion.div>
 
           <motion.div className="text-center mt-8" variants={itemVariants}>
-            <Button variant="outline" className="border-[#BC6C25] text-[#BC6C25] hover:bg-[#BC6C25] hover:text-white">
-              <Github className="w-4 h-4 mr-2" />
+            <Button variant="outline" className="border-[#BC6C25] text-[#BC6C25] bg-transparent hover:bg-[#BC6C25] hover:text-white">
+              <IoLogoGithub className="w-4 h-4 mr-2" />
               Follow the Trail
             </Button>
           </motion.div>
@@ -257,21 +273,21 @@ export default function Component() {
           viewport={{ once: true }}
         >
           <Card className="p-12 bg-gradient-to-br from-[#BC6C25]/10 to-[#DDA15E]/10 border-2 border-[#BC6C25]/20">
-            <h2 className="text-3xl font-display font-bold text-[#283618] mb-6">Ready to <span className="italic">Build ZK?</span></h2>
+            <h2 className="text-3xl font-display font-bold text-[#283618] mb-6">Ready to <span className="italic text-[#BC6C25]">Build ZK?</span></h2>
             <p className="text-lg text-[#606C38] mb-8">
               Join a community where proof is participation and privacy enables presence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-[#BC6C25] hover:bg-[#283618] text-white">
-                <MessageCircle className="w-5 h-5 mr-2" />
+                <LiaTelegram className="w-5 h-5 mr-2" />
                 Join Telegram
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-[#606C38] text-[#606C38] hover:bg-[#606C38] hover:text-white"
+                className="border-[#606C38] text-[#606C38] hover:bg-[#606C38] hover:text-white bg-transparent"
               >
-                <Twitter className="w-5 h-5 mr-2" />
+                <RiTwitterXFill className="w-5 h-5 mr-2" />
                 Follow Twitter
               </Button>
             </div>
@@ -288,7 +304,7 @@ export default function Component() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-display font-bold text-[#283618] mb-8">Powered by <span className="italic">Builders</span></h2>
+          <h2 className="text-3xl font-display font-bold text-[#283618] mb-8">Powered by <span className="italic text-[#BC6C25]">Builders</span></h2>
           <p className="text-lg text-[#606C38] mb-12">
             Backed by the zk community, built for the future of privacy-preserving infrastructure.
           </p>
@@ -306,34 +322,7 @@ export default function Component() {
         </motion.div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 bg-[#283618] text-[#FEFAE0]">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0">
-              <h3 className="text-2xl font-bold mb-2">Proof of Witness</h3>
-              <p className="text-[#DDA15E]">Proof is participation. Privacy with presence.</p>
-            </div>
-            <div className="flex space-x-6">
-              <Button variant="ghost" size="sm" className="text-[#FEFAE0] hover:bg-[#DDA15E]/20">
-                <MessageCircle className="w-4 h-4 mr-2" />
-                Telegram
-              </Button>
-              <Button variant="ghost" size="sm" className="text-[#FEFAE0] hover:bg-[#DDA15E]/20">
-                <Twitter className="w-4 h-4 mr-2" />
-                Twitter
-              </Button>
-              <Button variant="ghost" size="sm" className="text-[#FEFAE0] hover:bg-[#DDA15E]/20">
-                <Github className="w-4 h-4 mr-2" />
-                GitHub
-              </Button>
-            </div>
-          </div>
-          <div className="border-t border-[#DDA15E]/20 mt-8 pt-8 text-center">
-            <p className="text-[#DDA15E]/80">© 2024 Proof of Witness. Built to Build ZK.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       {/* Floating Elements */}
       <motion.div

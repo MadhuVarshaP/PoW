@@ -133,6 +133,19 @@
   font-family: var(--font-jetbrains);
 }
 
+.font-murqas {
+  font-family: 'Murqas', sans-serif;
+}
+
+/* Add Murqas font */
+@font-face {
+  font-family: 'Murqas';
+  src: url('/fonts/murqasregular-lxvx0.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   font-family: var(--font-inter);
 }
