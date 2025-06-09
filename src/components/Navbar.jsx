@@ -1,78 +1,73 @@
-import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Button } from "@/components/ui/button"
-import { MessageCircle, Twitter, Menu, X } from "lucide-react"
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { MessageCircle, Twitter, Menu, X } from "lucide-react";
 
 function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [mounted, setMounted] = useState(false)
-  
-  // Handle initial mounting and scrolling
-  useEffect(() => {
-    setMounted(true)
-    
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    
-    // Check initial scroll position
-    handleScroll()
-    
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  // Close mobile menu when scrolling
+  useEffect(() => {
+    setMounted(true);
+
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   useEffect(() => {
     if (mobileMenuOpen) {
-      setMobileMenuOpen(false)
+      setMobileMenuOpen(false);
     }
-  }, [scrolled])
+  }, [scrolled]);
 
-  // Static styles without animation on initial render
   const navbarStyle = {
-    position: 'fixed',
+    position: "fixed",
     top: 0,
-    left: '50%',
-    transform: 'translateX(-50%)',
-    width: scrolled ? '100%' : '90%',
+    left: "50%",
+    transform: "translateX(-50%)",
+    width: scrolled ? "100%" : "90%",
     backgroundColor: "#DDA15E",
-    boxShadow: scrolled 
-      ? '0 4px 20px rgba(221, 161, 94, 0.3)'
-      : '0 8px 32px rgba(221, 161, 94, 0.3)',
-    borderRadius: scrolled ? '0rem' : '2rem',
-    marginTop: scrolled ? '0rem' : '1rem',
-    height: 'auto',
-    padding: scrolled ? '0.5rem 0' : '0',
+    boxShadow: scrolled
+      ? "0 4px 20px rgba(221, 161, 94, 0.3)"
+      : "0 8px 32px rgba(221, 161, 94, 0.3)",
+    borderRadius: scrolled ? "0rem" : "2rem",
+    marginTop: scrolled ? "0rem" : "1rem",
+    // height: "auto", // REMOVE THIS LINE
+    padding: scrolled ? "0.5rem 0" : "0",
     zIndex: 50,
-    border: 'none'
-  }
+    border: "none",
+  };
 
-  // Static fallback for initial render (no animation)
+  const fixedHeight = "64px";
+
   if (!mounted) {
     return (
-      <div 
-        style={navbarStyle}
-      >
+      <div style={{ ...navbarStyle, height: fixedHeight }}>
         <div className="px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
           <div className="text-xl md:text-2xl font-bold font-display text-[#283618]">
             <span className="italic">Proof</span> of Witness
           </div>
-          
-          <div className='hidden md:flex'>
+
+          <div className="hidden md:flex">
             <div className="flex gap-3">
-              <Button 
-                variant="ghost" 
-                size="sm" 
+              <Button
+                variant="ghost"
+                size="sm"
                 className="text-[#283618] hover:bg-[#283618]/10 font-inter"
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
                 Telegram
               </Button>
-              <Button 
-                variant="ghost" 
-                size="sm" 
+              <Button
+                variant="ghost"
+                size="sm"
                 className="text-[#283618] hover:bg-[#283618]/10 font-inter"
               >
                 <Twitter className="w-4 h-4 mr-2" />
@@ -91,18 +86,18 @@ function Navbar() {
     );
   }
 
-  // Animated version after mount
   return (
-    <motion.div 
+    <motion.div
       className="fixed z-50 mx-auto"
       initial={false}
       animate={navbarStyle}
       transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+      style={{ height: fixedHeight }} // Set fixed height here
     >
-      <motion.div 
+      <motion.div
         className="px-4 md:px-6 py-3 md:py-4 flex justify-between items-center"
-        animate={{ 
-          padding: scrolled ? '0.75rem 1.5rem' : '0.75rem 1rem',
+        animate={{
+          padding: scrolled ? "0.75rem 1.5rem" : "0.75rem 1rem",
         }}
         transition={{ duration: 0.5 }}
       >
@@ -112,16 +107,12 @@ function Navbar() {
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
         >
-          <motion.span 
-            className="italic"
-          >
-            Proof
-          </motion.span> 
+          <motion.span className="italic">Proof</motion.span>
           <span className="ml-1">of Witness</span>
         </motion.div>
-        
+
         {/* Desktop Navigation */}
-        <div className='hidden md:flex'>
+        <div className="hidden md:flex">
           <motion.div
             className="flex gap-3"
             initial={{ opacity: 0, x: 20 }}
@@ -129,20 +120,20 @@ function Navbar() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button 
-                variant="ghost" 
-                size="sm" 
+              <Button
+                variant="ghost"
+                size="sm"
                 className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-inter transition-all duration-300"
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
                 Telegram
               </Button>
             </motion.div>
-            
+
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button 
-                variant="ghost" 
-                size="sm" 
+              <Button
+                variant="ghost"
+                size="sm"
                 className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-inter transition-all duration-300"
               >
                 <Twitter className="w-4 h-4 mr-2" />
@@ -196,21 +187,24 @@ function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            style={{ 
+            style={{
               backgroundColor: "#DDA15E",
-              borderRadius: scrolled ? "0 0 0 0" : "0 0 2rem 2rem"
+              borderRadius: scrolled ? "0 0 0 0" : "0 0 2rem 2rem",
             }}
           >
-            <motion.div 
+            <motion.div
               className="p-4 space-y-2"
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
               transition={{ duration: 0.2, delay: 0.1 }}
             >
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Button 
-                  variant="ghost" 
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Button
+                  variant="ghost"
                   className="w-full justify-start text-[#283618] hover:bg-[#283618]/10 font-inter transition-all duration-300"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -218,10 +212,13 @@ function Navbar() {
                   Telegram
                 </Button>
               </motion.div>
-              
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Button 
-                  variant="ghost" 
+
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Button
+                  variant="ghost"
                   className="w-full justify-start text-[#283618] hover:bg-[#283618]/10 font-inter transition-all duration-300"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -234,7 +231,7 @@ function Navbar() {
         )}
       </AnimatePresence>
     </motion.div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
