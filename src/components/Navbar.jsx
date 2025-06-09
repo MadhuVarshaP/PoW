@@ -175,7 +175,9 @@ function Navbar() {
               <Button
                 variant="ghost"
                 className="w-full justify-start text-[#283618] hover:bg-[#283618]/10 font-poppins transition-colors duration-300 font-extrabold"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() =>
+                  window.open("https://t.me/+TPdx_Fc5_ONmNGJl", "_blank")
+                }
               >
                 <LiaTelegram className="w-4 h-4 " />
                 Telegram
@@ -184,7 +186,9 @@ function Navbar() {
               <Button
                 variant="ghost"
                 className="w-full justify-start text-[#283618] hover:bg-[#283618]/10 font-poppins transition-colors duration-300 font-extrabold"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() =>
+                  window.open("https://x.com/ProofOfWitness", "_blank")
+                }
               >
                 <RiTwitterXFill className="w-4 h-4" />
                 Twitter

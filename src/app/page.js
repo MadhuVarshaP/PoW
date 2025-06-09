@@ -304,13 +304,13 @@ export default function Component() {
                     </span>
                     <span>
                       <TypingLine
-                        text="zk-summit-2024/"
+                        text="ZK Witness Chennai/"
                         delay={400}
                         speed={100}
                       />
                     </span>
                     <span className="text-[#DDA15E]">
-                      <TypingLine text="Dec 15" delay={900} speed={100} />
+                      <TypingLine text="June 21" delay={900} speed={100} />
                     </span>
                   </div>
                   <div className="flex justify-between">
@@ -319,13 +319,13 @@ export default function Component() {
                     </span>
                     <span>
                       <TypingLine
-                        text="privacy-builders-meetup/"
+                        text="ZK Witness Bangalore/"
                         delay={2800}
                         speed={100}
                       />
                     </span>
                     <span className="text-[#DDA15E]">
-                      <TypingLine text="Nov 28" delay={3400} speed={100} />
+                      <TypingLine text="July 10" delay={3400} speed={100} />
                     </span>
                   </div>
                   <div className="flex justify-between">
@@ -334,13 +334,13 @@ export default function Component() {
                     </span>
                     <span>
                       <TypingLine
-                        text="infra-narratives-workshop/"
+                        text="ZK Witness Mumbai/"
                         delay={6100}
                         speed={100}
                       />
                     </span>
                     <span className="text-[#DDA15E]">
-                      <TypingLine text="Oct 12" delay={6700} speed={100} />
+                      <TypingLine text="August 15" delay={6700} speed={100} />
                     </span>
                   </div>
                 </div>
