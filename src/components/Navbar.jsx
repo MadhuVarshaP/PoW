@@ -41,7 +41,7 @@ function Navbar() {
       : "0 8px 32px rgba(221, 161, 94, 0.3)",
     borderRadius: scrolled ? "0rem" : "2rem",
     marginTop: scrolled ? "0rem" : "1rem",
-    padding: scrolled ? "0.5rem 0" : "0",
+    // padding: scrolled ? "0.5rem 0" : "0",
     zIndex: 50,
     border: "none",
   };
@@ -54,7 +54,9 @@ function Navbar() {
         <div className="px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Image src={logo} alt="PoW Logo" className="h-10 w-auto" />
-            <span className="text-xl md:text-2xl font-murqas text-[#283618]">PoW</span>
+            <span className="text-xl md:text-2xl font-murqas text-[#283618]">
+              PoW
+            </span>
           </div>
 
           <div className="hidden md:flex">
@@ -93,11 +95,11 @@ function Navbar() {
       className="fixed z-50 mx-auto"
       initial={false}
       animate={navbarStyle}
-      transition={{ 
-        duration: 0.5, 
+      transition={{
+        duration: 0.5,
         ease: [0.25, 0.46, 0.45, 0.94],
         width: { type: "spring", stiffness: 200, damping: 30 },
-        borderRadius: { type: "spring", stiffness: 250, damping: 25 }
+        borderRadius: { type: "spring", stiffness: 250, damping: 25 },
       }}
       style={{ height: fixedHeight }}
     >
@@ -153,11 +155,11 @@ function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ 
-              duration: 0.3, 
+            transition={{
+              duration: 0.3,
               ease: "easeInOut",
               opacity: { duration: 0.2 },
-              height: { type: "spring", stiffness: 400, damping: 35 }
+              height: { type: "spring", stiffness: 400, damping: 35 },
             }}
             style={{
               backgroundColor: "#DDA15E",
