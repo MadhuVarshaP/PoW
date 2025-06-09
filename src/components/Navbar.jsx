@@ -73,6 +73,9 @@ function Navbar() {
                 variant="ghost"
                 size="sm"
                 className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-poppins font-extrabold"
+                onClick={() =>
+                  window.open("https://x.com/ProofOfWitness", "_blank")
+                }
               >
                 <RiTwitterXFill className="w-4 h-4" />
                 Twitter
@@ -114,6 +117,9 @@ function Navbar() {
               variant="ghost"
               size="sm"
               className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-poppins transition-all duration-300 font-extrabold"
+              onClick={() =>
+                window.open("https://t.me/+TPdx_Fc5_ONmNGJl", "_blank")
+              }
             >
               <LiaTelegram className="w-4 h-4 " />
               Telegram
@@ -123,6 +129,9 @@ function Navbar() {
               variant="ghost"
               size="sm"
               className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-poppins transition-all duration-300 font-extrabold"
+              onClick={() =>
+                window.open("https://x.com/ProofOfWitness", "_blank")
+              }
             >
               <RiTwitterXFill className="w-4 h-4 " />
               Twitter

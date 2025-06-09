@@ -153,6 +153,9 @@ export default function Component() {
               <Button
                 size="lg"
                 className="bg-[#BC6C25] hover:bg-[#283618] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 font-poppins"
+                onClick={() =>
+                  window.open("https://t.me/+TPdx_Fc5_ONmNGJl", "_blank")
+                }
               >
                 {" "}
                 Join the Witness
@@ -381,6 +384,9 @@ export default function Component() {
               <Button
                 size="lg"
                 className="bg-[#BC6C25] hover:bg-[#283618] text-white"
+                onClick={() =>
+                  window.open("https://t.me/+TPdx_Fc5_ONmNGJl", "_blank")
+                }
               >
                 <LiaTelegram className="w-5 h-5 mr-2" />
                 Join Telegram
@@ -389,6 +395,9 @@ export default function Component() {
                 size="lg"
                 variant="outline"
                 className="border-[#606C38] text-[#606C38] hover:bg-[#606C38] hover:text-white bg-transparent"
+                onClick={() =>
+                  window.open("https://x.com/ProofOfWitness", "_blank")
+                }
               >
                 <RiTwitterXFill className="w-5 h-5 mr-2" />
                 Follow Twitter
