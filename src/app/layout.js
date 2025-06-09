@@ -1,11 +1,12 @@
 // app/layout.tsx or app/layout.js
 import './globals.css'
-import { Inter, JetBrains_Mono, Playfair_Display } from 'next/font/google'
+import { Poppins, JetBrains_Mono, Playfair_Display } from 'next/font/google'
 
 // Google Fonts
-const inter = Inter({
+const poppins = Poppins({
   subsets: ['latin'],
-  variable: '--font-inter',
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-poppins',
 })
 
 const playfair = Playfair_Display({
@@ -27,8 +28,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} ${jetbrains.variable}`}>
-      <body className="bg-[#FEFAE0] font-inter">{children}</body>
+    <html lang="en" className={`${poppins.variable} ${playfair.variable} ${jetbrains.variable}`}>
+      <body className="bg-[#FEFAE0] font-poppins">{children}</body>
     </html>
   )
 }

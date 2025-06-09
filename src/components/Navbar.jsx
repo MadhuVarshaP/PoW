@@ -54,7 +54,7 @@ function Navbar() {
         <div className="px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Image src={logo} alt="PoW Logo" className="h-10 w-auto" />
-            {/* <span className="text-xl md:text-2xl font-murqas text-[#283618]">PoW</span> */}
+            <span className="text-xl md:text-2xl font-murqas text-[#283618]">PoW</span>
           </div>
 
           <div className="hidden md:flex">
@@ -62,17 +62,17 @@ function Navbar() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-inter "
+                className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-poppins font-extrabold"
               >
-                <LiaTelegram className="w-4 h-4 mr-2" />
+                <LiaTelegram className="w-4 h-4" />
                 Telegram
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-inter"
+                className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-poppins font-extrabold"
               >
-                <RiTwitterXFill className="w-4 h-4 mr-2" />
+                <RiTwitterXFill className="w-4 h-4" />
                 Twitter
               </Button>
             </div>
@@ -105,7 +105,6 @@ function Navbar() {
         {/* Logo - No animations */}
         <div className="flex items-center gap-2">
           <Image src={logo} alt="PoW Logo" className="h-10 w-auto" />
-          {/* <span className="text-xl md:text-2xl font-murqas text-[#283618]">PoW</span> */}
         </div>
 
         {/* Desktop Navigation - No animations */}
@@ -114,18 +113,18 @@ function Navbar() {
             <Button
               variant="ghost"
               size="sm"
-              className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-inter transition-all duration-300"
+              className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-poppins transition-all duration-300 font-extrabold"
             >
-              <LiaTelegram className="w-4 h-4 mr-2" />
+              <LiaTelegram className="w-4 h-4 " />
               Telegram
             </Button>
 
             <Button
               variant="ghost"
               size="sm"
-              className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-inter transition-all duration-300"
+              className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-poppins transition-all duration-300 font-extrabold"
             >
-              <RiTwitterXFill className="w-4 h-4 mr-2" />
+              <RiTwitterXFill className="w-4 h-4 " />
               Twitter
             </Button>
           </div>
@@ -169,19 +168,19 @@ function Navbar() {
             <div className="p-4 space-y-2">
               <Button
                 variant="ghost"
-                className="w-full justify-start text-[#283618] hover:bg-[#283618]/10 font-inter transition-colors duration-300"
+                className="w-full justify-start text-[#283618] hover:bg-[#283618]/10 font-poppins transition-colors duration-300 font-extrabold"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <LiaTelegram className="w-4 h-4 mr-3" />
+                <LiaTelegram className="w-4 h-4 " />
                 Telegram
               </Button>
 
               <Button
                 variant="ghost"
-                className="w-full justify-start text-[#283618] hover:bg-[#283618]/10 font-inter transition-colors duration-300"
+                className="w-full justify-start text-[#283618] hover:bg-[#283618]/10 font-poppins transition-colors duration-300 font-extrabold"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <RiTwitterXFill className="w-4 h-4 mr-3" />
+                <RiTwitterXFill className="w-4 h-4" />
                 Twitter
               </Button>
             </div>

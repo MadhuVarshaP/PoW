@@ -66,9 +66,9 @@ export default function Component() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FEFAE0] relative overflow-hidden font-inter">
+    <div className="min-h-screen bg-[#FEFAE0] relative overflow-hidden font-poppins">
       {/* Background Pattern */}
-      <motion.div className="fixed inset-0 opacity-5 pointer-events-none" style={{ y: backgroundY }}>
+      <motion.div className="fixed inset-0 opacity-5 popoppins-events-none" style={{ y: backgroundY }}>
         <svg className="w-full h-full" viewBox="0 0 1000 1000">
           <defs>
             <pattern id="zkPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
@@ -115,7 +115,7 @@ export default function Component() {
           <motion.div variants={itemVariants}>
             {/* <Button
               size="lg"
-              className="bg-[#BC6C25] hover:bg-[#283618] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 font-inter"
+              className="bg-[#BC6C25] hover:bg-[#283618] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 font-poppins"
             >
               Join the Witnesses
               <ArrowRight className="w-5 h-5 ml-2" />
@@ -123,7 +123,7 @@ export default function Component() {
             <div className="relative inline-block group">
 <Button
               size="lg"
-              className="bg-[#BC6C25] hover:bg-[#283618] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 font-inter"
+              className="bg-[#BC6C25] hover:bg-[#283618] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 font-poppins"
             >    Join the Witness
     <ArrowRight className="w-5 h-5 ml-2" />
   </Button>
@@ -204,7 +204,7 @@ export default function Component() {
                     <value.icon className="w-8 h-8 text-white" />
                   </motion.div>
                   <h3 className="text-xl font-bold text-[#283618] mb-4 text-center font-display">{value.title}</h3>
-                  <p className="text-[#606C38] text-center leading-relaxed font-inter">{value.description}</p>
+                  <p className="text-[#606C38] text-center leading-relaxed font-poppins">{value.description}</p>
                 </Card>
               </motion.div>
             ))}
