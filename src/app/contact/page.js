@@ -12,7 +12,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-[#FEFAE0]">
       <Navbar />
 
-      <main className="max-w-6xl mx-auto px-6 py-20">
+      <main className="max-w-6xl mx-auto px-6 py-28">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { LiaTelegram } from "react-icons/lia";
-import { RiMenu3Fill, RiTwitterXFill, RiSearchLine } from "react-icons/ri";
+import { RiMenu3Fill, RiTwitterXFill } from "react-icons/ri";
 import logo from "../assets/logo.png";
 import Image from "next/image";
+import Link from "next/link";
+
+const navItems = [
+  { name: "Home", path: "/" },
+  { name: "Events", path: "/events" },
+  { name: "Learn", path: "/learn" },
+  { name: "Resources", path: "/resources" },
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" },
+];
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -61,25 +70,18 @@ function Navbar() {
 
           <div className="hidden md:flex">
             <div className="flex gap-3">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-poppins font-extrabold"
-              >
-                <LiaTelegram className="w-4 h-4" />
-                Telegram
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-poppins font-extrabold"
-                onClick={() =>
-                  window.open("https://x.com/ProofOfWitness", "_blank")
-                }
-              >
-                <RiTwitterXFill className="w-4 h-4" />
-                Twitter
-              </Button>
+              {navItems.map((item) => (
+                <Link key={item.name} href={item.path} passHref legacyBehavior>
+                  <Button
+                    asChild
+                    variant="ghost"
+                    size="sm"
+                    className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-poppins font-extrabold"
+                  >
+                    <a>{item.name}</a>
+                  </Button>
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -113,29 +115,18 @@ function Navbar() {
 
         <div className="hidden md:flex">
           <div className="flex gap-3">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-poppins transition-all duration-300 font-extrabold"
-              onClick={() =>
-                window.open("https://t.me/+TPdx_Fc5_ONmNGJl", "_blank")
-              }
-            >
-              <LiaTelegram className="w-4 h-4 " />
-              Telegram
-            </Button>
-
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-poppins transition-all duration-300 font-extrabold"
-              onClick={() =>
-                window.open("https://x.com/ProofOfWitness", "_blank")
-              }
-            >
-              <RiTwitterXFill className="w-4 h-4 " />
-              Twitter
-            </Button>
+            {navItems.map((item) => (
+              <Link key={item.name} href={item.path} passHref legacyBehavior>
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="sm"
+                  className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-poppins transition-all duration-300 font-extrabold"
+                >
+                  <a>{item.name}</a>
+                </Button>
+              </Link>
+            ))}
           </div>
         </div>
 
@@ -172,27 +163,17 @@ function Navbar() {
             }}
           >
             <div className="p-4 space-y-2">
-              <Button
-                variant="ghost"
-                className="w-full justify-start text-[#283618] hover:bg-[#283618]/10 font-poppins transition-colors duration-300 font-extrabold"
-                onClick={() =>
-                  window.open("https://t.me/+TPdx_Fc5_ONmNGJl", "_blank")
-                }
-              >
-                <LiaTelegram className="w-4 h-4 " />
-                Telegram
-              </Button>
-
-              <Button
-                variant="ghost"
-                className="w-full justify-start text-[#283618] hover:bg-[#283618]/10 font-poppins transition-colors duration-300 font-extrabold"
-                onClick={() =>
-                  window.open("https://x.com/ProofOfWitness", "_blank")
-                }
-              >
-                <RiTwitterXFill className="w-4 h-4" />
-                Twitter
-              </Button>
+              {navItems.map((item) => (
+                <Link key={item.name} href={item.path} passHref legacyBehavior>
+                  <Button
+                    asChild
+                    variant="ghost"
+                    className="w-full justify-start text-[#283618] hover:bg-[#283618]/10 font-poppins transition-colors duration-300 font-extrabold"
+                  >
+                    <a>{item.name}</a>
+                  </Button>
+                </Link>
+              ))}
             </div>
           </motion.div>
         )}
