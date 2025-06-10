@@ -243,134 +243,88 @@ export default function Component() {
             What We <span className="italic text-[#BC6C25]">Do</span>
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
                 icon: Terminal,
                 title: "Technical Workshops",
                 description:
-                  "Hands-on sessions covering ZK-SNARKs, ZK-STARKs, and circuit development. From Circom basics to advanced proof systems.",
-                features: [
-                  "Circuit Design",
-                  "Proof Generation",
-                  "Verification Systems",
-                ],
+                  "Hands-on sessions covering ZK-SNARKs, ZK-STARKs, and circuit development.",
                 color: "from-[#BC6C25] to-[#283618]",
               },
               {
                 icon: Users,
                 title: "Builder Meetups",
                 description:
-                  "Regular gatherings for ZK developers, researchers, and protocol teams. Share insights, collaborate on projects, and network.",
-                features: [
-                  "Protocol Deep-dives",
-                  "Code Reviews",
-                  "Project Showcases",
-                ],
+                  "Regular gatherings for ZK developers, researchers, and protocol teams.",
                 color: "from-[#606C38] to-[#BC6C25]",
               },
               {
                 icon: Shield,
                 title: "Research Sessions",
                 description:
-                  "Explore cutting-edge ZK research, from mathematical foundations to practical implementations and security analysis.",
-                features: [
-                  "Paper Reviews",
-                  "Security Audits",
-                  "Protocol Analysis",
-                ],
+                  "Explore cutting-edge ZK research and practical implementations.",
                 color: "from-[#DDA15E] to-[#606C38]",
               },
               {
                 icon: Zap,
                 title: "Hackathons & Challenges",
                 description:
-                  "Competitive events focused on building real ZK applications. Solve complex problems with cryptographic proofs.",
-                features: [
-                  "Privacy Solutions",
-                  "Scaling Infrastructure",
-                  "Novel Applications",
-                ],
+                  "Competitive events focused on building real ZK applications.",
                 color: "from-[#283618] to-[#DDA15E]",
               },
               {
                 icon: Book,
                 title: "Educational Content",
                 description:
-                  "Comprehensive learning resources, tutorials, and documentation to help developers master zero-knowledge technology.",
-                features: [
-                  "Video Tutorials",
-                  "Technical Guides",
-                  "Best Practices",
-                ],
+                  "Comprehensive learning resources and documentation for developers.",
                 color: "from-[#BC6C25] to-[#606C38]",
               },
               {
                 icon: Globe,
                 title: "Community Building",
                 description:
-                  "Foster connections between ZK enthusiasts globally. Create spaces for collaboration and knowledge sharing.",
-                features: [
-                  "Global Network",
-                  "Mentorship Programs",
-                  "Open Source Projects",
-                ],
+                  "Foster connections between ZK enthusiasts globally.",
                 color: "from-[#606C38] to-[#283618]",
               },
             ].map((activity, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{
-                  y: -8,
-                  transition: { duration: 0.3, ease: "easeOut" },
-                }}
-                className="group"
-              >
-                <Card className="h-full p-6 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-xl hover:shadow-[#BC6C25]/10 bg-white/80 backdrop-blur-sm overflow-hidden relative">
-                  {/* Background Gradient */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${activity.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
-                  />
-
-                  {/* Icon Header */}
-                  <div className="relative z-10 mb-6">
-                    <div
-                      className={`w-14 h-14 rounded-xl bg-gradient-to-br ${activity.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <activity.icon className="w-7 h-7 text-white" />
+              <motion.div key={index} variants={itemVariants}>
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="h-full"
+                >
+                  <div className="relative group bg-white rounded-xl border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 p-5 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-[200px] flex flex-col">
+                    {/* Header with Icon */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div
+                        className={`w-12 h-12 rounded-full bg-gradient-to-r ${activity.color} flex items-center justify-center shadow-md`}
+                      >
+                        <activity.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="text-xs font-bold text-[#BC6C25] bg-[#BC6C25]/10 px-3 py-1 rounded-full">
+                        {String(index + 1).padStart(2, "0")}
+                      </div>
                     </div>
-                    <h3 className="text-xl font-bold text-[#283618] group-hover:text-[#BC6C25] transition-colors duration-300">
+
+                    {/* Title */}
+                    <h3 className="text-lg font-bold text-[#283618] mb-3 group-hover:text-[#BC6C25] transition-colors duration-300">
                       {activity.title}
                     </h3>
+
+                    {/* Description */}
+                    <p className="text-sm text-[#606C38] leading-relaxed flex-1">
+                      {activity.description}
+                    </p>
+
+                    {/* Bottom accent line */}
+                    <div
+                      className={`h-1 bg-gradient-to-r ${activity.color} rounded-full mt-4 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
+                    />
                   </div>
-
-                  {/* Description */}
-                  <p className="text-[#606C38] mb-6 leading-relaxed relative z-10">
-                    {activity.description}
-                  </p>
-
-                  {/* Features List */}
-                  <div className="relative z-10">
-                    <h4 className="text-sm font-semibold text-[#283618] mb-3">
-                      Key Focus Areas:
-                    </h4>
-                    <ul className="space-y-2">
-                      {activity.features.map((feature, i) => (
-                        <li
-                          key={i}
-                          className="flex items-center text-sm text-[#606C38]"
-                        >
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#BC6C25] mr-3 flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Hover Effect */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#BC6C25] to-[#DDA15E] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-                </Card>
+                </motion.div>
               </motion.div>
             ))}
           </div>
@@ -428,8 +382,9 @@ export default function Component() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
+                    className="h-full"
                   >
-                    <div className="relative group bg-white border-l-4 border-[#BC6C25] p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div className="relative group bg-white border-l-4 border-[#BC6C25] p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-[240px] flex flex-col">
                       <div className="absolute top-4 left-4 text-xs text-[#BC6C25] font-mono bg-[#fefae0] px-2 py-0.5 rounded">
                         $ proof
                       </div>

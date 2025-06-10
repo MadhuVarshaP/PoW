@@ -26,40 +26,30 @@ export default function ContactPage() {
   const teamMembers = [
     {
       name: "Dr. Sarah Chen",
-      role: "Lead Cryptographer & Co-Founder",
+      role: "Lead Cryptographer",
       bio: "PhD in Applied Cryptography from MIT. Former researcher at Zcash Foundation with 8+ years in zero-knowledge systems.",
       email: "sarah@proofofwitness.com",
       linkedin: "https://linkedin.com/in/sarahchen-zk",
       twitter: "https://twitter.com/sarahchen_zk",
       github: "https://github.com/sarahchen",
-      image: "/team/sarah.jpg",
-      expertise: ["ZK-SNARKs", "Protocol Design", "Cryptographic Research"],
     },
     {
       name: "Alex Thompson",
-      role: "Technical Lead & Co-Founder",
+      role: "Technical Lead",
       bio: "Full-stack developer specializing in ZK applications. Previously at Polygon Labs, building zkEVM infrastructure.",
       email: "alex@proofofwitness.com",
       linkedin: "https://linkedin.com/in/alexthompson-dev",
       twitter: "https://twitter.com/alexthompson_zk",
       github: "https://github.com/alexthompson",
-      image: "/team/alex.jpg",
-      expertise: ["Circom", "Smart Contracts", "dApp Development"],
     },
     {
       name: "Emma Wilson",
-      role: "Community Manager & Educator",
+      role: "Community Manager",
       bio: "Former developer advocate at ConsenSys. Passionate about making complex cryptography accessible to developers.",
       email: "emma@proofofwitness.com",
       linkedin: "https://linkedin.com/in/emmawilson-crypto",
       twitter: "https://twitter.com/emmawilson_zk",
       github: "https://github.com/emmawilson",
-      image: "/team/emma.jpg",
-      expertise: [
-        "Developer Education",
-        "Community Building",
-        "Technical Writing",
-      ],
     },
     {
       name: "Prof. Michael Rodriguez",
@@ -69,12 +59,6 @@ export default function ContactPage() {
       linkedin: "https://linkedin.com/in/prof-rodriguez",
       twitter: "https://twitter.com/prof_rodriguez",
       github: "https://github.com/profrodriguez",
-      image: "/team/michael.jpg",
-      expertise: [
-        "Academic Research",
-        "Protocol Security",
-        "Formal Verification",
-      ],
     },
   ];
 
@@ -331,87 +315,83 @@ export default function ContactPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{
-                  y: -8,
-                  transition: { duration: 0.3, ease: "easeOut" },
-                }}
-                className="group"
-              >
-                <Card className="p-6 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-xl hover:shadow-[#BC6C25]/10 h-full flex flex-col bg-white/90 backdrop-blur-sm">
-                  {/* Profile Image */}
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#BC6C25] to-[#283618] mx-auto mb-4 flex items-center justify-center">
-                    <div className="text-white text-2xl font-bold">
-                      {member.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
+              <motion.div key={index} variants={itemVariants}>
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="h-full"
+                >
+                  <div className="relative group bg-white border-l-4 border-[#BC6C25] p-5 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-[240px] flex flex-col">
+                    <div className="absolute top-3 left-3 text-xs text-[#BC6C25] font-mono bg-[#fefae0] px-2 py-0.5 rounded">
+                      $ team
                     </div>
-                  </div>
 
-                  {/* Name and Role */}
-                  <h3 className="text-lg font-bold text-[#283618] text-center mb-2 group-hover:text-[#BC6C25] transition-colors duration-300">
-                    {member.name}
-                  </h3>
-                  <p className="text-sm font-medium text-[#BC6C25] text-center mb-4">
-                    {member.role}
-                  </p>
+                    {/* Profile Avatar */}
+                    <div className="w-12 h-12 bg-[#BC6C25] rounded-lg flex items-center justify-center mb-3 ml-auto">
+                      <div className="text-white text-sm font-bold">
+                        {member.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")}
+                      </div>
+                    </div>
 
-                  {/* Bio */}
-                  <p className="text-sm text-[#606C38] text-center mb-4 flex-1 leading-relaxed">
-                    {member.bio}
-                  </p>
+                    {/* Name and Role */}
+                    <h3 className="text-base font-mono text-[#283618] mb-1 pl-5">
+                      <span className="text-[#BC6C25]">#</span> {member.name}
+                    </h3>
+                    <p className="text-xs font-mono text-[#BC6C25] mb-3 pl-5">
+                      {member.role}
+                    </p>
 
-                  {/* Expertise Tags */}
-                  <div className="flex flex-wrap gap-1 mb-4 justify-center">
-                    {member.expertise.map((skill, i) => (
-                      <span
-                        key={i}
-                        className="text-xs px-2 py-1 rounded-full bg-[#DDA15E]/20 text-[#BC6C25] font-medium"
+                    {/* Bio - shortened and fixed height */}
+                    <div className="flex-1 pl-5 mb-3">
+                      <p className="text-xs font-mono text-[#606C38] leading-relaxed">
+                        {member.bio.split('.')[0].substring(0, 80)}...
+                      </p>
+                    </div>
+
+                    {/* Contact Links */}
+                    <div className="flex gap-2 pl-5 mt-auto">
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="w-6 h-6 rounded bg-[#BC6C25]/10 hover:bg-[#BC6C25]/20 flex items-center justify-center transition-colors duration-300"
                       >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
+                        <Mail className="w-3 h-3 text-[#BC6C25]" />
+                      </a>
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-6 h-6 rounded bg-[#BC6C25]/10 hover:bg-[#BC6C25]/20 flex items-center justify-center transition-colors duration-300"
+                      >
+                        <Linkedin className="w-3 h-3 text-[#BC6C25]" />
+                      </a>
+                      <a
+                        href={member.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-6 h-6 rounded bg-[#BC6C25]/10 hover:bg-[#BC6C25]/20 flex items-center justify-center transition-colors duration-300"
+                      >
+                        <Twitter className="w-3 h-3 text-[#BC6C25]" />
+                      </a>
+                      <a
+                        href={member.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-6 h-6 rounded bg-[#BC6C25]/10 hover:bg-[#BC6C25]/20 flex items-center justify-center transition-colors duration-300"
+                      >
+                        <Github className="w-3 h-3 text-[#BC6C25]" />
+                      </a>
+                    </div>
 
-                  {/* Contact Links */}
-                  <div className="flex justify-center gap-3">
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="w-8 h-8 rounded-full bg-[#BC6C25]/10 hover:bg-[#BC6C25]/20 flex items-center justify-center transition-colors duration-300"
-                    >
-                      <Mail className="w-4 h-4 text-[#BC6C25]" />
-                    </a>
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-full bg-[#BC6C25]/10 hover:bg-[#BC6C25]/20 flex items-center justify-center transition-colors duration-300"
-                    >
-                      <Linkedin className="w-4 h-4 text-[#BC6C25]" />
-                    </a>
-                    <a
-                      href={member.twitter}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-full bg-[#BC6C25]/10 hover:bg-[#BC6C25]/20 flex items-center justify-center transition-colors duration-300"
-                    >
-                      <Twitter className="w-4 h-4 text-[#BC6C25]" />
-                    </a>
-                    <a
-                      href={member.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-full bg-[#BC6C25]/10 hover:bg-[#BC6C25]/20 flex items-center justify-center transition-colors duration-300"
-                    >
-                      <Github className="w-4 h-4 text-[#BC6C25]" />
-                    </a>
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 bg-gradient-to-br from-[#BC6C25]/10 via-[#DDA15E]/10 to-transparent pointer-events-none rounded-lg blur-md" />
                   </div>
-                </Card>
+                </motion.div>
               </motion.div>
             ))}
           </div>
