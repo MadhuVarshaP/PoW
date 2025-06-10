@@ -25,40 +25,22 @@ import { Button } from "@/components/ui/button";
 export default function ContactPage() {
   const teamMembers = [
     {
-      name: "Dr. Sarah Chen",
-      role: "Lead Cryptographer",
-      bio: "PhD in Applied Cryptography from MIT. Former researcher at Zcash Foundation with 8+ years in zero-knowledge systems.",
-      email: "sarah@proofofwitness.com",
-      linkedin: "https://linkedin.com/in/sarahchen-zk",
-      twitter: "https://twitter.com/sarahchen_zk",
-      github: "https://github.com/sarahchen",
+      name: "Kaushik",
+      role: "Founder & Community Lead",
+      bio: "Blockchain developer with 3+ years of experience building dApps across EVM, Solana, Aptos, and Vee chains. Global community organizer with 50+ events and international meetups.",
+      email: "kaushik@proofofwitness.com",
+      linkedin: "https://www.linkedin.com/in/kaushik-k-36b871219/",
+      twitter: "https://x.com/Kaushikk1704",
+      github: "https://github.com/KaushikKC",
     },
     {
-      name: "Alex Thompson",
-      role: "Technical Lead",
-      bio: "Full-stack developer specializing in ZK applications. Previously at Polygon Labs, building zkEVM infrastructure.",
-      email: "alex@proofofwitness.com",
-      linkedin: "https://linkedin.com/in/alexthompson-dev",
-      twitter: "https://twitter.com/alexthompson_zk",
-      github: "https://github.com/alexthompson",
-    },
-    {
-      name: "Emma Wilson",
-      role: "Community Manager",
-      bio: "Former developer advocate at ConsenSys. Passionate about making complex cryptography accessible to developers.",
-      email: "emma@proofofwitness.com",
-      linkedin: "https://linkedin.com/in/emmawilson-crypto",
-      twitter: "https://twitter.com/emmawilson_zk",
-      github: "https://github.com/emmawilson",
-    },
-    {
-      name: "Prof. Michael Rodriguez",
-      role: "Research Advisor",
-      bio: "Professor of Computer Science at Stanford. Leading researcher in zero-knowledge proofs and privacy-preserving systems.",
-      email: "michael@proofofwitness.com",
-      linkedin: "https://linkedin.com/in/prof-rodriguez",
-      twitter: "https://twitter.com/prof_rodriguez",
-      github: "https://github.com/profrodriguez",
+      name: "Madhu Varsha",
+      role: "Co-Founder & Technical Lead",
+      bio: "Blockchain developer with 2+ years of expertise in Solidity smart contracts and dApp development. Community advocate with experience organizing technical meetups and workshops.",
+      email: "madhu@proofofwitness.com",
+      linkedin: "https://www.linkedin.com/in/madhu-varsha-p-a7ba26259/",
+      twitter: "https://x.com/MadhuVarshaP",
+      github: "https://github.com/madhuvarshaP",
     },
   ];
 
@@ -351,7 +333,7 @@ export default function ContactPage() {
                     {/* Bio - shortened and fixed height */}
                     <div className="flex-1 pl-5 mb-3">
                       <p className="text-xs font-mono text-[#606C38] leading-relaxed">
-                        {member.bio.split('.')[0].substring(0, 80)}...
+                        {member.bio.split(".")[0].substring(0, 80)}...
                       </p>
                     </div>
 
