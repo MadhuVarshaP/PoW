@@ -17,148 +17,227 @@ import {
   ArrowRight,
   Trophy,
   Target,
+  Video,
+  FileText,
+  ExternalLink,
+  Download,
+  Eye,
+  Github,
+  Globe,
+  PlayCircle,
+  BookOpen,
+  Terminal,
+  Zap,
+  Shield,
+  Calendar,
+  MapPin,
+  Coffee,
+  MessageCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function LearnPage() {
   const learningPaths = [
     {
-      title: "Zero-Knowledge Fundamentals",
+      title: "ZK Fundamentals",
       icon: Book,
-      description:
-        "Master the mathematical foundations and core concepts of zero-knowledge proofs. Perfect for beginners entering the ZK space.",
-      modules: [
-        "Introduction to Zero-Knowledge Proofs",
-        "Mathematical Foundations",
-        "Interactive vs Non-Interactive Proofs",
-        "Commitment Schemes",
-        "Basic Circuit Construction",
-      ],
+      description: "Master the core concepts of zero-knowledge proofs with interactive tutorials and community support.",
       level: "Beginner",
-      duration: "6 weeks",
+      duration: "4-6 weeks",
       students: "2,847",
       rating: 4.8,
-      progress: 0,
-      price: "Free",
-      instructor: "Dr. Sarah Chen",
-      completionRate: "89%",
-      prerequisites: "Basic Mathematics",
-      image: "/courses/fundamentals.jpg",
+      type: "Learning Path",
+      tags: ["Theory", "Fundamentals"],
+    },
+    {
+      title: "Circuit Development",
+      icon: Code,
+      description: "Learn to build ZK circuits using Circom with hands-on projects and peer collaboration.",
+      level: "Intermediate",
+      duration: "6-8 weeks",
+      students: "1,892",
+      rating: 4.7,
+      type: "Practical Course",
+      tags: ["Circom", "Development"],
     },
     {
       title: "ZK-SNARKs Deep Dive",
       icon: Lightbulb,
-      description:
-        "Advanced exploration of zk-SNARKs, from Groth16 to PLONK. Learn to build production-ready zero-knowledge applications.",
-      modules: [
-        "Groth16 Protocol Deep Dive",
-        "PLONK and Universal Setup",
-        "Trusted Setup Ceremonies",
-        "Circuit Optimization Techniques",
-        "Security Analysis & Auditing",
-      ],
+      description: "Advanced exploration of zk-SNARKs protocols with community-driven research discussions.",
       level: "Advanced",
-      duration: "10 weeks",
+      duration: "8-10 weeks",
       students: "1,234",
       rating: 4.9,
-      progress: 0,
-      price: "$299",
-      instructor: "Prof. Michael Rodriguez",
-      completionRate: "76%",
-      prerequisites: "ZK Fundamentals",
-      image: "/courses/snarks.jpg",
+      type: "Advanced Track",
+      tags: ["SNARKs", "Research"],
     },
     {
-      title: "Practical ZK Development",
-      icon: Code,
-      description:
-        "Hands-on development course covering Circom, SnarkJS, and building full-stack ZK applications with real-world projects.",
-      modules: [
-        "Circom Circuit Development",
-        "SnarkJS Integration",
-        "Frontend ZK Integration",
-        "Smart Contract Verification",
-        "Full-Stack ZK dApp Project",
-      ],
-      level: "Intermediate",
-      duration: "8 weeks",
-      students: "1,892",
-      rating: 4.7,
-      progress: 0,
-      price: "$199",
-      instructor: "Alex Thompson",
-      completionRate: "82%",
-      prerequisites: "JavaScript, Solidity Basics",
-      image: "/courses/development.jpg",
-    },
-    {
-      title: "ZK Applications & Use Cases",
+      title: "ZK Applications",
       icon: GraduationCap,
-      description:
-        "Explore cutting-edge applications: privacy-preserving DeFi, identity solutions, and scaling technologies like zkRollups.",
-      modules: [
-        "Privacy-Preserving DeFi",
-        "Zero-Knowledge Identity Systems",
-        "zkRollups and Layer 2 Scaling",
-        "Private Voting Systems",
-        "Compliance and Regulatory Aspects",
-      ],
+      description: "Explore real-world ZK applications in DeFi, identity, and privacy with case studies.",
       level: "Intermediate",
-      duration: "7 weeks",
+      duration: "5-7 weeks",
       students: "956",
       rating: 4.6,
-      progress: 0,
-      price: "$149",
-      instructor: "Emma Wilson",
-      completionRate: "85%",
-      prerequisites: "ZK Fundamentals",
-      image: "/courses/applications.jpg",
+      type: "Application Focus",
+      tags: ["DeFi", "Privacy"],
     },
     {
       title: "ZK-STARKs & Scalability",
       icon: Trophy,
-      description:
-        "Master transparent zero-knowledge proofs with ZK-STARKs. Learn about post-quantum security and massive scalability solutions.",
-      modules: [
-        "STARK Protocol Fundamentals",
-        "FRI (Fast Reed-Solomon IOP)",
-        "Cairo Programming Language",
-        "StarkNet Development",
-        "Post-Quantum Cryptography",
-      ],
+      description: "Master transparent zero-knowledge proofs and post-quantum security concepts.",
       level: "Advanced",
-      duration: "12 weeks",
+      duration: "10-12 weeks",
       students: "567",
       rating: 4.9,
-      progress: 0,
-      price: "$399",
-      instructor: "Dr. Vitalik Chen",
-      completionRate: "71%",
-      prerequisites: "Advanced Mathematics, ZK-SNARKs",
-      image: "/courses/starks.jpg",
+      type: "Specialized Track",
+      tags: ["STARKs", "Scalability"],
     },
     {
       title: "ZK Security & Auditing",
       icon: Target,
-      description:
-        "Learn to identify vulnerabilities in ZK systems, conduct security audits, and implement best practices for production deployments.",
-      modules: [
-        "Common ZK Vulnerabilities",
-        "Circuit Security Analysis",
-        "Trusted Setup Security",
-        "Formal Verification Methods",
-        "Production Deployment Best Practices",
-      ],
+      description: "Learn to identify vulnerabilities and conduct security audits in ZK systems.",
       level: "Expert",
-      duration: "6 weeks",
+      duration: "6-8 weeks",
       students: "234",
       rating: 4.8,
-      progress: 0,
-      price: "$499",
-      instructor: "Security Team",
-      completionRate: "68%",
-      prerequisites: "ZK Development Experience",
-      image: "/courses/security.jpg",
+      type: "Security Focus",
+      tags: ["Security", "Auditing"],
+    },
+  ];
+
+  const resources = [
+    {
+      category: "Essential Guides",
+      icon: BookOpen,
+      items: [
+        {
+          title: "Zero-Knowledge Proofs: Complete Guide",
+          description: "Comprehensive introduction covering mathematical foundations and practical implementations.",
+          type: "Guide",
+          author: "ZK Community",
+          readTime: "30 min",
+          difficulty: "Beginner",
+          tags: ["Fundamentals", "Theory"],
+        },
+        {
+          title: "Circom Language Documentation",
+          description: "Official documentation for writing arithmetic circuits in Circom.",
+          type: "Documentation",
+          author: "iden3 Team",
+          readTime: "25 min",
+          difficulty: "Intermediate",
+          tags: ["Development", "Circom"],
+        },
+        {
+          title: "Privacy-Preserving Smart Contracts",
+          description: "Best practices for building privacy applications with zero-knowledge proofs.",
+          type: "Guide",
+          author: "Privacy Labs",
+          readTime: "20 min",
+          difficulty: "Intermediate",
+          tags: ["Smart Contracts", "Privacy"],
+        },
+      ],
+    },
+    {
+      category: "Video Tutorials",
+      icon: PlayCircle,
+      items: [
+        {
+          title: "ZK-SNARKs Explained Visually",
+          description: "Visual breakdown of ZK-SNARKs concepts with practical examples.",
+          type: "Video Series",
+          author: "ZK Academy",
+          readTime: "45 min",
+          difficulty: "Beginner",
+          tags: ["SNARKs", "Visual Learning"],
+        },
+        {
+          title: "Building Your First ZK Circuit",
+          description: "Hands-on workshop covering circuit design and proof generation.",
+          type: "Workshop",
+          author: "Community Expert",
+          readTime: "60 min",
+          difficulty: "Intermediate",
+          tags: ["Hands-on", "Circuits"],
+        },
+        {
+          title: "ZK Rollups Architecture",
+          description: "Technical deep dive into ZK rollup architecture and implementation.",
+          type: "Webinar",
+          author: "Scaling Team",
+          readTime: "40 min",
+          difficulty: "Advanced",
+          tags: ["Rollups", "Scaling"],
+        },
+      ],
+    },
+    {
+      category: "Development Tools",
+      icon: Terminal,
+      items: [
+        {
+          title: "SnarkJS - JavaScript ZK Library",
+          description: "Complete JavaScript library for generating and verifying ZK proofs.",
+          type: "Library",
+          author: "iden3",
+          readTime: "15 min",
+          difficulty: "Intermediate",
+          tags: ["JavaScript", "Library"],
+        },
+        {
+          title: "ZoKrates - ZK Toolbox",
+          description: "High-level language and toolbox for zkSNARKs on Ethereum.",
+          type: "Toolbox",
+          author: "ZoKrates Team",
+          readTime: "20 min",
+          difficulty: "Intermediate",
+          tags: ["Ethereum", "Toolbox"],
+        },
+        {
+          title: "Arkworks - Rust ZK Ecosystem",
+          description: "Comprehensive Rust ecosystem for zero-knowledge cryptography.",
+          type: "Framework",
+          author: "Arkworks Team",
+          readTime: "25 min",
+          difficulty: "Advanced",
+          tags: ["Rust", "Framework"],
+        },
+      ],
+    },
+  ];
+
+  const workshops = [
+    {
+      title: "ZK Fundamentals Workshop",
+      date: "Every Saturday",
+      time: "2:00 PM UTC",
+      duration: "2 hours",
+      instructor: "Community Experts",
+      level: "Beginner",
+      attendees: 45,
+      description: "Weekly interactive workshop covering ZK basics with Q&A sessions.",
+    },
+    {
+      title: "Circuit Building Bootcamp",
+      date: "Bi-weekly",
+      time: "6:00 PM UTC",
+      duration: "3 hours",
+      instructor: "Senior Developers",
+      level: "Intermediate",
+      attendees: 32,
+      description: "Hands-on circuit development with real-world project examples.",
+    },
+    {
+      title: "ZK Research Discussions",
+      date: "Monthly",
+      time: "4:00 PM UTC",
+      duration: "90 minutes",
+      instructor: "Research Community",
+      level: "Advanced",
+      attendees: 28,
+      description: "Deep dive into latest ZK research papers and innovations.",
     },
   ];
 
@@ -167,7 +246,7 @@ export default function LearnPage() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.1,
       },
     },
   };
@@ -175,16 +254,14 @@ export default function LearnPage() {
   const cardVariants = {
     hidden: {
       opacity: 0,
-      y: 40,
-      scale: 0.95,
+      y: 20,
     },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
-        duration: 0.7,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        duration: 0.5,
+        ease: "easeOut",
       },
     },
   };
@@ -204,6 +281,21 @@ export default function LearnPage() {
     }
   };
 
+  const getTypeIcon = (type) => {
+    switch (type) {
+      case "Video Series":
+      case "Webinar":
+      case "Workshop":
+        return Video;
+      case "Library":
+      case "Framework":
+      case "Toolbox":
+        return Code;
+      default:
+        return FileText;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#FEFAE0]">
       <Navbar />
@@ -216,173 +308,297 @@ export default function LearnPage() {
           className="text-center mb-16"
         >
           <h1 className="text-6xl font-display font-bold text-[#283618] mb-6">
-            Master <span className="italic text-[#BC6C25]">Zero-Knowledge</span>
+            Learn <span className="italic text-[#BC6C25]">Zero-Knowledge</span>
           </h1>
           <p className="text-xl text-[#606C38] max-w-4xl mx-auto leading-relaxed mb-8">
-            Comprehensive learning paths designed by industry experts. From
-            mathematical foundations to production deployments, master every
-            aspect of zero-knowledge technology.
+            Free community-driven learning resources for mastering zero-knowledge technology. 
+            From fundamentals to advanced applications - everything you need to become a ZK expert.
           </p>
           <div className="flex justify-center gap-8 text-sm text-[#606C38]">
             <div className="flex items-center gap-2">
               <Users className="w-4 h-4" />
-              <span>6,000+ Students</span>
+              <span>6,000+ Learners</span>
             </div>
             <div className="flex items-center gap-2">
-              <Star className="w-4 h-4 text-yellow-500" />
-              <span>4.8 Average Rating</span>
+              <Coffee className="w-4 h-4" />
+              <span>100% Free</span>
             </div>
             <div className="flex items-center gap-2">
-              <Trophy className="w-4 h-4" />
-              <span>Industry Certified</span>
+              <MessageCircle className="w-4 h-4" />
+              <span>Community Support</span>
             </div>
           </div>
         </motion.div>
 
+        {/* Learning Paths Section */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="mb-20"
         >
-          {learningPaths.map((path, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              whileHover={{
-                y: -12,
-                transition: { duration: 0.3, ease: "easeOut" },
-              }}
-              className="group"
-            >
-              <Card className="overflow-hidden border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-2xl hover:shadow-[#BC6C25]/10 h-full flex flex-col bg-white/90 backdrop-blur-sm">
-                {/* Course Image/Header */}
-                <div className="relative h-48 bg-gradient-to-br from-[#283618] via-[#606C38] to-[#BC6C25] overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-[#283618] mb-4">Learning Paths</h2>
+            <p className="text-lg text-[#606C38] max-w-2xl mx-auto">
+              Structured learning journeys designed by the community, for the community
+            </p>
+          </div>
 
-                  {/* Level Badge */}
-                  <div className="absolute top-4 right-4 z-20">
-                    <span
-                      className={`px-3 py-1 rounded-full text-xs font-semibold border ${getLevelColor(
-                        path.level
-                      )}`}
-                    >
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {learningPaths.map((path, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                whileHover={{
+                  y: -8,
+                  transition: { duration: 0.2, ease: "easeOut" },
+                }}
+                className="group"
+              >
+                <Card className="p-5 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-lg hover:shadow-[#BC6C25]/10 h-full flex flex-col bg-white/90 backdrop-blur-sm">
+                  {/* Header */}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-[#BC6C25]/10 flex items-center justify-center">
+                      <path.icon className="w-5 h-5 text-[#BC6C25]" />
+                    </div>
+                    <span className={`px-2 py-1 rounded-full text-xs font-semibold border ${getLevelColor(path.level)}`}>
                       {path.level}
                     </span>
                   </div>
 
-                  {/* Price Badge */}
-                  <div className="absolute top-4 left-4 z-20">
-                    <span
-                      className={`px-3 py-1 rounded-full text-xs font-bold ${
-                        path.price === "Free"
-                          ? "bg-green-500 text-white"
-                          : "bg-[#DDA15E] text-[#283618]"
-                      }`}
-                    >
-                      {path.price}
-                    </span>
-                  </div>
-
-                  {/* Course Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center z-10">
-                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                      <path.icon className="w-8 h-8 text-white" />
-                    </div>
-                  </div>
-
-                  {/* Stats at bottom */}
-                  <div className="absolute bottom-4 left-4 right-4 z-20 flex justify-between items-center text-white text-xs">
-                    <div className="flex items-center gap-1">
-                      <Users className="w-3 h-3" />
-                      <span>{path.students}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Star className="w-3 h-3 text-yellow-400" />
-                      <span>{path.rating}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Content Section */}
-                <div className="p-6 flex-1 flex flex-col">
-                  {/* Title and Instructor */}
-                  <div className="mb-4">
-                    <h3 className="text-xl font-bold text-[#283618] mb-2 group-hover:text-[#BC6C25] transition-colors duration-300">
-                      {path.title}
-                    </h3>
-                    <p className="text-sm text-[#606C38] font-medium">
-                      by {path.instructor}
-                    </p>
-                  </div>
+                  {/* Title and Type */}
+                  <h3 className="text-lg font-bold text-[#283618] mb-1 group-hover:text-[#BC6C25] transition-colors duration-300">
+                    {path.title}
+                  </h3>
+                  <p className="text-xs text-[#BC6C25] font-medium mb-3">{path.type}</p>
 
                   {/* Description */}
                   <p className="text-[#606C38] mb-4 leading-relaxed text-sm flex-1">
                     {path.description}
                   </p>
 
-                  {/* Course Details */}
-                  <div className="space-y-3 mb-4">
-                    <div className="flex items-center justify-between text-sm">
-                      <div className="flex items-center text-[#606C38]">
-                        <Clock className="w-4 h-4 mr-2 text-[#BC6C25]" />
-                        <span>{path.duration}</span>
-                      </div>
-                      <div className="flex items-center text-[#606C38]">
-                        <CheckCircle className="w-4 h-4 mr-2 text-green-500" />
-                        <span>{path.completionRate}</span>
-                      </div>
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    {path.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="text-xs px-2 py-1 rounded-full bg-[#283618]/10 text-[#283618] font-medium"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Stats */}
+                  <div className="flex items-center justify-between text-xs text-[#606C38] mb-4">
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" />
+                      <span>{path.duration}</span>
                     </div>
-                    <div className="text-xs text-[#606C38]">
-                      <span className="font-semibold">Prerequisites:</span>{" "}
-                      {path.prerequisites}
+                    <div className="flex items-center gap-1">
+                      <Users className="w-3 h-3" />
+                      <span>{path.students}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Star className="w-3 h-3 text-yellow-500" />
+                      <span>{path.rating}</span>
                     </div>
                   </div>
 
-                  {/* Modules Preview */}
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-[#283618] mb-2">
-                      Course Modules:
-                    </h4>
-                    <div className="space-y-1">
-                      {path.modules.slice(0, 3).map((module, i) => (
-                        <div
-                          key={i}
-                          className="flex items-center text-xs text-[#606C38]"
-                        >
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#DDA15E] mr-2 flex-shrink-0" />
-                          <span className="truncate">{module}</span>
-                        </div>
-                      ))}
-                      {path.modules.length > 3 && (
-                        <div className="text-xs text-[#BC6C25] font-medium">
-                          +{path.modules.length - 3} more modules
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="space-y-2">
-                    <Button className="w-full bg-[#BC6C25] hover:bg-[#283618] text-white font-semibold py-3 rounded-lg transition-all duration-300 group-hover:shadow-lg flex items-center justify-center gap-2">
-                      <Play className="w-4 h-4" />
-                      Start Learning
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="w-full border-[#BC6C25]/30 text-[#BC6C25] hover:bg-[#BC6C25]/10 font-medium"
-                    >
-                      View Curriculum
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
+                  {/* Action Button */}
+                  <Button className="w-full bg-[#BC6C25] hover:bg-[#283618] text-white font-semibold py-2 rounded-lg transition-all duration-300 group-hover:shadow-lg flex items-center justify-center gap-2 text-sm">
+                    <Play className="w-4 h-4" />
+                    Start Learning
+                  </Button>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
-        {/* Learning Path Recommendation */}
+        {/* Resources Section */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="mb-20"
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-[#283618] mb-4">Learning Resources</h2>
+            <p className="text-lg text-[#606C38] max-w-2xl mx-auto">
+              Curated collection of free resources to accelerate your ZK journey
+            </p>
+          </div>
+
+          <div className="space-y-12">
+            {resources.map((category, categoryIndex) => (
+              <motion.div
+                key={categoryIndex}
+                variants={cardVariants}
+                className="space-y-6"
+              >
+                {/* Category Header */}
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[#BC6C25]/10 flex items-center justify-center">
+                    <category.icon className="w-5 h-5 text-[#BC6C25]" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#283618]">{category.category}</h3>
+                </div>
+
+                {/* Resources Grid */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {category.items.map((item, itemIndex) => {
+                    const TypeIcon = getTypeIcon(item.type);
+                    return (
+                      <motion.div
+                        key={itemIndex}
+                        whileHover={{
+                          y: -4,
+                          transition: { duration: 0.2, ease: "easeOut" },
+                        }}
+                        className="group"
+                      >
+                        <Card className="p-4 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-lg hover:shadow-[#BC6C25]/10 h-full flex flex-col bg-white/90 backdrop-blur-sm">
+                          {/* Header */}
+                          <div className="flex items-center justify-between mb-3">
+                            <div className="flex items-center gap-2">
+                              <div className="w-8 h-8 rounded-lg bg-[#DDA15E]/20 flex items-center justify-center">
+                                <TypeIcon className="w-4 h-4 text-[#BC6C25]" />
+                              </div>
+                              <span className="text-xs font-semibold px-2 py-1 rounded-full bg-[#DDA15E]/30 text-[#BC6C25]">
+                                {item.type}
+                              </span>
+                            </div>
+                            <span className={`text-xs font-semibold px-2 py-1 rounded-full border ${getLevelColor(item.difficulty)}`}>
+                              {item.difficulty}
+                            </span>
+                          </div>
+
+                          {/* Title and Author */}
+                          <h4 className="text-base font-bold text-[#283618] mb-1 group-hover:text-[#BC6C25] transition-colors duration-300">
+                            {item.title}
+                          </h4>
+                          <p className="text-xs text-[#606C38] font-medium mb-2">by {item.author}</p>
+
+                          {/* Description */}
+                          <p className="text-[#606C38] mb-3 leading-relaxed flex-1 text-sm">
+                            {item.description}
+                          </p>
+
+                          {/* Tags */}
+                          <div className="flex flex-wrap gap-1 mb-3">
+                            {item.tags.map((tag, tagIndex) => (
+                              <span
+                                key={tagIndex}
+                                className="text-xs px-2 py-1 rounded-full bg-[#283618]/10 text-[#283618] font-medium"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+
+                          {/* Stats and Action */}
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-1 text-xs text-[#606C38]">
+                              <Clock className="w-3 h-3" />
+                              <span>{item.readTime}</span>
+                            </div>
+                            <Button
+                              size="sm"
+                              className="bg-[#BC6C25] hover:bg-[#283618] text-white font-semibold px-3 py-1 rounded text-xs transition-all duration-300"
+                            >
+                              Access
+                            </Button>
+                          </div>
+                        </Card>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Community Workshops Section */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="mb-20"
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-[#283618] mb-4">Community Workshops</h2>
+            <p className="text-lg text-[#606C38] max-w-2xl mx-auto">
+              Join live workshops and connect with fellow ZK enthusiasts
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {workshops.map((workshop, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                whileHover={{
+                  y: -6,
+                  transition: { duration: 0.2, ease: "easeOut" },
+                }}
+                className="group"
+              >
+                <Card className="p-5 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-lg hover:shadow-[#BC6C25]/10 h-full flex flex-col bg-white/90 backdrop-blur-sm">
+                  {/* Header */}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-[#BC6C25]/10 flex items-center justify-center">
+                      <Calendar className="w-5 h-5 text-[#BC6C25]" />
+                    </div>
+                    <span className={`px-2 py-1 rounded-full text-xs font-semibold border ${getLevelColor(workshop.level)}`}>
+                      {workshop.level}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-lg font-bold text-[#283618] mb-2 group-hover:text-[#BC6C25] transition-colors duration-300">
+                    {workshop.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-[#606C38] mb-4 leading-relaxed text-sm flex-1">
+                    {workshop.description}
+                  </p>
+
+                  {/* Workshop Details */}
+                  <div className="space-y-2 mb-4 text-sm text-[#606C38]">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-[#BC6C25]" />
+                      <span>{workshop.date}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-[#BC6C25]" />
+                      <span>{workshop.time} • {workshop.duration}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Users className="w-4 h-4 text-[#BC6C25]" />
+                      <span>{workshop.attendees} attendees</span>
+                    </div>
+                  </div>
+
+                  {/* Instructor */}
+                  <p className="text-xs text-[#606C38] font-medium mb-4">
+                    Led by {workshop.instructor}
+                  </p>
+
+                  {/* Action Button */}
+                  <Button className="w-full bg-[#BC6C25] hover:bg-[#283618] text-white font-semibold py-2 rounded-lg transition-all duration-300 group-hover:shadow-lg flex items-center justify-center gap-2 text-sm">
+                    <Calendar className="w-4 h-4" />
+                    Join Workshop
+                  </Button>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Community Call to Action */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -390,25 +606,26 @@ export default function LearnPage() {
           className="mt-20"
         >
           <div className="bg-gradient-to-r from-[#BC6C25] to-[#283618] rounded-2xl p-8 text-white text-center">
+            <Shield className="w-12 h-12 mx-auto mb-4 opacity-80" />
             <h2 className="text-3xl font-bold mb-4">
-              Not Sure Where to Start?
+              Join Our Learning Community
             </h2>
             <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
-              Take our personalized assessment to get a customized learning path
-              based on your background and goals in zero-knowledge technology.
+              Connect with thousands of ZK enthusiasts, share knowledge, and build the future of privacy together. 
+              Everything is free and open-source.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 variant="outline"
                 className="bg-white text-[#283618] hover:bg-[#FEFAE0] border-white font-semibold px-8 py-3"
               >
-                Take Assessment
+                Join Discord
               </Button>
               <Button
                 variant="ghost"
                 className="text-white hover:bg-white/10 border border-white/30 font-semibold px-8 py-3"
               >
-                Browse All Courses
+                Contribute Resources
               </Button>
             </div>
           </div>
