@@ -531,9 +531,9 @@ export default function ResourcesPage() {
               Contribute to Our Resource Library
             </h2>
             <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
-              Know of a great ZK resource we're missing? Help us build the most
-              comprehensive zero-knowledge learning library by submitting your
-              recommendations.
+              Know of a great ZK resource we&apos;re missing? Help us build the
+              most comprehensive zero-knowledge learning library by submitting
+              your recommendations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button

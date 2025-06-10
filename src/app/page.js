@@ -2,7 +2,15 @@
 
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight, Terminal, Users, Shield, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  Terminal,
+  Users,
+  Shield,
+  Zap,
+  Book,
+  Globe,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
@@ -142,7 +150,6 @@ export default function Component() {
             A narrative-first zk builder community
           </motion.p>
           <motion.div variants={itemVariants}>
-        
             <div className="relative inline-block group">
               <Button
                 size="lg"
@@ -203,100 +210,250 @@ export default function Component() {
             </p>
           </motion.div>
         </motion.div>
-                  <motion.div variants={itemVariants}>
-
-      <div className="flex justify-center w-full mt-8">
-          <div className="relative inline-block group">
-            <Button
-              size="lg"
-              className="hover:bg-[#BC6C25] bg-[#DDA15E] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 font-poppins"
-            >
-              Request Info Deck
-            </Button>
-            <span className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 text-xs font-mono bg-[#FEFAE0] text-[#BC6C25] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
-              &gt; request --deck
-            </span>
+        <motion.div variants={itemVariants}>
+          <div className="flex justify-center w-full mt-8">
+            <div className="relative inline-block group">
+              <Button
+                size="lg"
+                className="hover:bg-[#BC6C25] bg-[#DDA15E] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 font-poppins"
+              >
+                Request Info Deck
+              </Button>
+              <span className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 text-xs font-mono bg-[#FEFAE0] text-[#BC6C25] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
+                &gt; request --deck
+              </span>
+            </div>
           </div>
-      </div>
-</motion.div>
+        </motion.div>
       </section>
 
-{/* why us */}
-    <section ref={valuesRef} className="py-24 text-black relative overflow-hidden">
-  {/* Noise overlay */}
-  <div className="absolute inset-0 z-0 bg-noise pointer-events-none" />
-<div className="relative z-10">
-  <motion.div
-    className="relative z-10 max-w-6xl mx-auto px-6"
-    variants={containerVariants}
-    initial="hidden"
-    animate={valuesInView ? "visible" : "hidden"}
-  >
-    <motion.h2
-      className="text-4xl md:text-5xl font-display font-bold text-center mb-16 text-[#1a1a1a]"
-      variants={itemVariants}
-    >
-      Why We <span className="italic text-[#BC6C25]">Exist</span>
-    </motion.h2>
-
-    <div className="grid md:grid-cols-3 gap-8">
-      {[
-        {
-          icon: Zap,
-          title: "Infra over Hype.",
-          description:
-            "We build core rails — the trustless infra that future zk apps depend on.",
-          color: "bg-[#606C38]",
-        },
-          {
-          icon: Shield,
-          title: "Zero-Knowledge. Zero Fluff.",
-          description:
-            "Every claim is backed by verifiable proofs. No room for hype. Just math and logic.",
-          color: "bg-[#BC6C25]",
-        },
-        {
-          icon: Users,
-          title: "Proofs, not Promises.",
-          description:
-            "We deliver code, not decks. Everything is transparent, verifiable, on-chain.",
-          color: "bg-[#DDA15E]",
-        },
-      ].map((value, index) => (
-       <motion.div key={index} variants={itemVariants}>
+      {/* What We Do Section */}
+      <section className="py-24 bg-gradient-to-br from-[#FEFAE0] to-[#DDA15E]/10">
         <motion.div
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
-  viewport={{ once: true }}
->
-  <div className="relative group bg-white border-l-4 border-[#BC6C25] p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
-    <div className="absolute top-4 left-4 text-xs text-[#BC6C25] font-mono bg-[#fefae0] px-2 py-0.5 rounded">
-      $ proof
-    </div>
-    <div
-      className={`w-12 h-12 ${value.color} rounded-lg flex items-center justify-center mb-4 ml-auto`}
-    >
-      <value.icon className="w-6 h-6 text-white" />
-    </div>
-    <h3 className="text-lg font-mono text-[#283618] mb-2 pl-6">
-      <span className="text-[#BC6C25]">#</span> {value.title}
-    </h3>
-    <p className="text-sm font-mono text-[#606C38] leading-relaxed pl-6">
-      {value.description}
-    </p>
+          className="max-w-6xl mx-auto px-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, threshold: 0.1 }}
+        >
+          <motion.h2
+            className="text-4xl md:text-5xl font-display font-bold text-center mb-16 text-[#283618]"
+            variants={itemVariants}
+          >
+            What We <span className="italic text-[#BC6C25]">Do</span>
+          </motion.h2>
 
-    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 bg-gradient-to-br from-[#BC6C25]/10 via-[#DDA15E]/10 to-transparent pointer-events-none rounded-lg blur-md" />
-  </div>
-  </motion.div>
-</motion.div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Terminal,
+                title: "Technical Workshops",
+                description:
+                  "Hands-on sessions covering ZK-SNARKs, ZK-STARKs, and circuit development. From Circom basics to advanced proof systems.",
+                features: [
+                  "Circuit Design",
+                  "Proof Generation",
+                  "Verification Systems",
+                ],
+                color: "from-[#BC6C25] to-[#283618]",
+              },
+              {
+                icon: Users,
+                title: "Builder Meetups",
+                description:
+                  "Regular gatherings for ZK developers, researchers, and protocol teams. Share insights, collaborate on projects, and network.",
+                features: [
+                  "Protocol Deep-dives",
+                  "Code Reviews",
+                  "Project Showcases",
+                ],
+                color: "from-[#606C38] to-[#BC6C25]",
+              },
+              {
+                icon: Shield,
+                title: "Research Sessions",
+                description:
+                  "Explore cutting-edge ZK research, from mathematical foundations to practical implementations and security analysis.",
+                features: [
+                  "Paper Reviews",
+                  "Security Audits",
+                  "Protocol Analysis",
+                ],
+                color: "from-[#DDA15E] to-[#606C38]",
+              },
+              {
+                icon: Zap,
+                title: "Hackathons & Challenges",
+                description:
+                  "Competitive events focused on building real ZK applications. Solve complex problems with cryptographic proofs.",
+                features: [
+                  "Privacy Solutions",
+                  "Scaling Infrastructure",
+                  "Novel Applications",
+                ],
+                color: "from-[#283618] to-[#DDA15E]",
+              },
+              {
+                icon: Book,
+                title: "Educational Content",
+                description:
+                  "Comprehensive learning resources, tutorials, and documentation to help developers master zero-knowledge technology.",
+                features: [
+                  "Video Tutorials",
+                  "Technical Guides",
+                  "Best Practices",
+                ],
+                color: "from-[#BC6C25] to-[#606C38]",
+              },
+              {
+                icon: Globe,
+                title: "Community Building",
+                description:
+                  "Foster connections between ZK enthusiasts globally. Create spaces for collaboration and knowledge sharing.",
+                features: [
+                  "Global Network",
+                  "Mentorship Programs",
+                  "Open Source Projects",
+                ],
+                color: "from-[#606C38] to-[#283618]",
+              },
+            ].map((activity, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{
+                  y: -8,
+                  transition: { duration: 0.3, ease: "easeOut" },
+                }}
+                className="group"
+              >
+                <Card className="h-full p-6 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-xl hover:shadow-[#BC6C25]/10 bg-white/80 backdrop-blur-sm overflow-hidden relative">
+                  {/* Background Gradient */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${activity.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+                  />
 
-      ))}
-    </div>
-  </motion.div>
-  </div>
-</section>
+                  {/* Icon Header */}
+                  <div className="relative z-10 mb-6">
+                    <div
+                      className={`w-14 h-14 rounded-xl bg-gradient-to-br ${activity.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <activity.icon className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-[#283618] group-hover:text-[#BC6C25] transition-colors duration-300">
+                      {activity.title}
+                    </h3>
+                  </div>
 
+                  {/* Description */}
+                  <p className="text-[#606C38] mb-6 leading-relaxed relative z-10">
+                    {activity.description}
+                  </p>
+
+                  {/* Features List */}
+                  <div className="relative z-10">
+                    <h4 className="text-sm font-semibold text-[#283618] mb-3">
+                      Key Focus Areas:
+                    </h4>
+                    <ul className="space-y-2">
+                      {activity.features.map((feature, i) => (
+                        <li
+                          key={i}
+                          className="flex items-center text-sm text-[#606C38]"
+                        >
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#BC6C25] mr-3 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Hover Effect */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#BC6C25] to-[#DDA15E] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* why us */}
+      <section
+        ref={valuesRef}
+        className="py-24 text-black relative overflow-hidden"
+      >
+        {/* Noise overlay */}
+        <div className="absolute inset-0 z-0 bg-noise pointer-events-none" />
+        <div className="relative z-10">
+          <motion.div
+            className="relative z-10 max-w-6xl mx-auto px-6"
+            variants={containerVariants}
+            initial="hidden"
+            animate={valuesInView ? "visible" : "hidden"}
+          >
+            <motion.h2
+              className="text-4xl md:text-5xl font-display font-bold text-center mb-16 text-[#1a1a1a]"
+              variants={itemVariants}
+            >
+              Why We <span className="italic text-[#BC6C25]">Exist</span>
+            </motion.h2>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: Zap,
+                  title: "Infra over Hype.",
+                  description:
+                    "We build core rails — the trustless infra that future zk apps depend on.",
+                  color: "bg-[#606C38]",
+                },
+                {
+                  icon: Shield,
+                  title: "Zero-Knowledge. Zero Fluff.",
+                  description:
+                    "Every claim is backed by verifiable proofs. No room for hype. Just math and logic.",
+                  color: "bg-[#BC6C25]",
+                },
+                {
+                  icon: Users,
+                  title: "Proofs, not Promises.",
+                  description:
+                    "We deliver code, not decks. Everything is transparent, verifiable, on-chain.",
+                  color: "bg-[#DDA15E]",
+                },
+              ].map((value, index) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="relative group bg-white border-l-4 border-[#BC6C25] p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+                      <div className="absolute top-4 left-4 text-xs text-[#BC6C25] font-mono bg-[#fefae0] px-2 py-0.5 rounded">
+                        $ proof
+                      </div>
+                      <div
+                        className={`w-12 h-12 ${value.color} rounded-lg flex items-center justify-center mb-4 ml-auto`}
+                      >
+                        <value.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-lg font-mono text-[#283618] mb-2 pl-6">
+                        <span className="text-[#BC6C25]">#</span> {value.title}
+                      </h3>
+                      <p className="text-sm font-mono text-[#606C38] leading-relaxed pl-6">
+                        {value.description}
+                      </p>
+
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 bg-gradient-to-br from-[#BC6C25]/10 via-[#DDA15E]/10 to-transparent pointer-events-none rounded-lg blur-md" />
+                    </div>
+                  </motion.div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Event Archive Section */}
       <section ref={archiveRef} className="py-20 bg-[#283618]/5">
@@ -387,25 +544,23 @@ export default function Component() {
               Follow the Trail
             </Button>
           </motion.div> */}
-          
         </motion.div>
-         <motion.div variants={itemVariants}>
-  <div className="flex justify-center w-full mt-8">
-    <div className="relative inline-block group">
-      <Button
-        size="lg"
-        className="bg-[#BC6C25] hover:bg-[#606C38] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 font-poppins"
-      >
-        <IoLogoGithub className="w-4 h-4 mr-2" />
-        Follow the Trail
-      </Button>
-      <span className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 text-xs font-mono bg-[#FEFAE0] text-[#606C38] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
-        &gt; zk-events --watch	
-      </span>
-    </div>
-  </div>
-</motion.div>
-
+        <motion.div variants={itemVariants}>
+          <div className="flex justify-center w-full mt-8">
+            <div className="relative inline-block group">
+              <Button
+                size="lg"
+                className="bg-[#BC6C25] hover:bg-[#606C38] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 font-poppins"
+              >
+                <IoLogoGithub className="w-4 h-4 mr-2" />
+                Follow the Trail
+              </Button>
+              <span className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 text-xs font-mono bg-[#FEFAE0] text-[#606C38] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
+                &gt; zk-events --watch
+              </span>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* Community CTA */}

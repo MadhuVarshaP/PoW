@@ -4,107 +4,416 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Mail, MessageSquare, Send } from "lucide-react";
+import {
+  Mail,
+  MessageSquare,
+  Send,
+  Calendar,
+  MapPin,
+  Clock,
+  Phone,
+  Linkedin,
+  Twitter,
+  Github,
+  ExternalLink,
+  Users,
+  MessageCircle,
+  Video,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function ContactPage() {
+  const teamMembers = [
+    {
+      name: "Dr. Sarah Chen",
+      role: "Lead Cryptographer & Co-Founder",
+      bio: "PhD in Applied Cryptography from MIT. Former researcher at Zcash Foundation with 8+ years in zero-knowledge systems.",
+      email: "sarah@proofofwitness.com",
+      linkedin: "https://linkedin.com/in/sarahchen-zk",
+      twitter: "https://twitter.com/sarahchen_zk",
+      github: "https://github.com/sarahchen",
+      image: "/team/sarah.jpg",
+      expertise: ["ZK-SNARKs", "Protocol Design", "Cryptographic Research"],
+    },
+    {
+      name: "Alex Thompson",
+      role: "Technical Lead & Co-Founder",
+      bio: "Full-stack developer specializing in ZK applications. Previously at Polygon Labs, building zkEVM infrastructure.",
+      email: "alex@proofofwitness.com",
+      linkedin: "https://linkedin.com/in/alexthompson-dev",
+      twitter: "https://twitter.com/alexthompson_zk",
+      github: "https://github.com/alexthompson",
+      image: "/team/alex.jpg",
+      expertise: ["Circom", "Smart Contracts", "dApp Development"],
+    },
+    {
+      name: "Emma Wilson",
+      role: "Community Manager & Educator",
+      bio: "Former developer advocate at ConsenSys. Passionate about making complex cryptography accessible to developers.",
+      email: "emma@proofofwitness.com",
+      linkedin: "https://linkedin.com/in/emmawilson-crypto",
+      twitter: "https://twitter.com/emmawilson_zk",
+      github: "https://github.com/emmawilson",
+      image: "/team/emma.jpg",
+      expertise: [
+        "Developer Education",
+        "Community Building",
+        "Technical Writing",
+      ],
+    },
+    {
+      name: "Prof. Michael Rodriguez",
+      role: "Research Advisor",
+      bio: "Professor of Computer Science at Stanford. Leading researcher in zero-knowledge proofs and privacy-preserving systems.",
+      email: "michael@proofofwitness.com",
+      linkedin: "https://linkedin.com/in/prof-rodriguez",
+      twitter: "https://twitter.com/prof_rodriguez",
+      github: "https://github.com/profrodriguez",
+      image: "/team/michael.jpg",
+      expertise: [
+        "Academic Research",
+        "Protocol Security",
+        "Formal Verification",
+      ],
+    },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
+
   return (
     <div className="min-h-screen bg-[#FEFAE0]">
       <Navbar />
 
-      <main className="max-w-6xl mx-auto px-6 py-28">
+      <main className="max-w-7xl mx-auto px-6 py-28">
+        {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <h1 className="text-5xl font-display font-bold text-[#283618] mb-4">
+          <h1 className="text-6xl font-display font-bold text-[#283618] mb-6">
             Get in <span className="italic text-[#BC6C25]">Touch</span>
           </h1>
-          <p className="text-lg text-[#606C38] mb-12 max-w-3xl">
-            Have questions about zero-knowledge proofs or want to collaborate?
-            We'd love to hear from you.
+          <p className="text-xl text-[#606C38] max-w-4xl mx-auto leading-relaxed mb-8">
+            Ready to dive into zero-knowledge technology? Whether you&apos;re
+            looking to collaborate, learn, or contribute to the ZK ecosystem,
+            we&apos;re here to help you succeed.
           </p>
+          <div className="flex justify-center gap-8 text-sm text-[#606C38]">
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4" />
+              <span>24h Response Time</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Users className="w-4 h-4" />
+              <span>Expert Team</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MessageCircle className="w-4 h-4" />
+              <span>Active Community</span>
+            </div>
+          </div>
+        </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              <Card className="p-8 border-2 border-[#BC6C25]/20">
-                <h2 className="text-2xl font-bold text-[#283618] mb-6">
+        {/* Contact Methods Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20"
+        >
+          {/* Contact Form */}
+          <motion.div variants={itemVariants} className="lg:col-span-2">
+            <Card className="p-8 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-xl hover:shadow-[#BC6C25]/10 bg-white/90 backdrop-blur-sm">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 rounded-full bg-[#BC6C25]/10 flex items-center justify-center mr-4">
+                  <Send className="w-6 h-6 text-[#BC6C25]" />
+                </div>
+                <h2 className="text-2xl font-bold text-[#283618]">
                   Send us a Message
                 </h2>
-                <form className="space-y-6">
+              </div>
+              <form className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-[#606C38] mb-2">Name</label>
+                    <label className="block text-[#606C38] font-medium mb-2">
+                      Full Name *
+                    </label>
                     <input
                       type="text"
-                      className="w-full p-3 rounded-lg border-2 border-[#DDA15E]/20 bg-white/50 focus:border-[#BC6C25] transition"
+                      required
+                      className="w-full p-4 rounded-lg border-2 border-[#DDA15E]/20 bg-white/70 focus:border-[#BC6C25] focus:outline-none transition-all duration-300"
+                      placeholder="Your full name"
                     />
                   </div>
                   <div>
-                    <label className="block text-[#606C38] mb-2">Email</label>
+                    <label className="block text-[#606C38] font-medium mb-2">
+                      Email Address *
+                    </label>
                     <input
                       type="email"
-                      className="w-full p-3 rounded-lg border-2 border-[#DDA15E]/20 bg-white/50 focus:border-[#BC6C25] transition"
+                      required
+                      className="w-full p-4 rounded-lg border-2 border-[#DDA15E]/20 bg-white/70 focus:border-[#BC6C25] focus:outline-none transition-all duration-300"
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-[#606C38] font-medium mb-2">
+                      Organization
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full p-4 rounded-lg border-2 border-[#DDA15E]/20 bg-white/70 focus:border-[#BC6C25] focus:outline-none transition-all duration-300"
+                      placeholder="Your company/organization"
                     />
                   </div>
                   <div>
-                    <label className="block text-[#606C38] mb-2">Message</label>
-                    <textarea
-                      rows="4"
-                      className="w-full p-3 rounded-lg border-2 border-[#DDA15E]/20 bg-white/50 focus:border-[#BC6C25] transition"
-                    ></textarea>
+                    <label className="block text-[#606C38] font-medium mb-2">
+                      Inquiry Type
+                    </label>
+                    <select className="w-full p-4 rounded-lg border-2 border-[#DDA15E]/20 bg-white/70 focus:border-[#BC6C25] focus:outline-none transition-all duration-300">
+                      <option>General Inquiry</option>
+                      <option>Partnership</option>
+                      <option>Technical Support</option>
+                      <option>Speaking Opportunity</option>
+                      <option>Collaboration</option>
+                    </select>
                   </div>
-                  <Button
-                    className="w-full bg-[#BC6C25] hover:bg-[#283618]"
-                    size="lg"
-                  >
-                    <Send className="w-4 h-4 mr-2" />
-                    Send Message
-                  </Button>
-                </form>
-              </Card>
-            </motion.div>
-
-            {/* Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              className="space-y-6"
-            >
-              <Card className="p-6 border-2 border-[#BC6C25]/20">
-                <div className="flex items-center mb-4">
-                  <Mail className="w-6 h-6 text-[#BC6C25] mr-3" />
-                  <h3 className="text-xl font-bold text-[#283618]">Email</h3>
                 </div>
-                <p className="text-[#606C38]">contact@proofofwitness.com</p>
-              </Card>
-
-              <Card className="p-6 border-2 border-[#BC6C25]/20">
-                <div className="flex items-center mb-4">
-                  <MessageSquare className="w-6 h-6 text-[#BC6C25] mr-3" />
-                  <h3 className="text-xl font-bold text-[#283618]">
-                    Community Chat
-                  </h3>
+                <div>
+                  <label className="block text-[#606C38] font-medium mb-2">
+                    Message *
+                  </label>
+                  <textarea
+                    rows="5"
+                    required
+                    className="w-full p-4 rounded-lg border-2 border-[#DDA15E]/20 bg-white/70 focus:border-[#BC6C25] focus:outline-none transition-all duration-300 resize-none"
+                    placeholder="Tell us about your project, questions, or how we can help..."
+                  ></textarea>
                 </div>
-                <p className="text-[#606C38] mb-4">
-                  Join our Telegram community for quick responses and updates.
-                </p>
                 <Button
-                  className="w-full bg-[#BC6C25] hover:bg-[#283618]"
-                  onClick={() =>
-                    window.open("https://t.me/+TPdx_Fc5_ONmNGJl", "_blank")
-                  }
+                  className="w-full bg-[#BC6C25] hover:bg-[#283618] text-white font-semibold py-4 rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2"
+                  size="lg"
                 >
-                  Join Telegram
+                  <Send className="w-5 h-5" />
+                  Send Message
                 </Button>
-              </Card>
-            </motion.div>
+              </form>
+            </Card>
+          </motion.div>
+
+          {/* Quick Contact & Book a Call */}
+          <motion.div variants={itemVariants} className="space-y-6">
+            {/* Email Contact */}
+            <Card className="p-6 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-xl hover:shadow-[#BC6C25]/10 bg-white/90 backdrop-blur-sm">
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 rounded-full bg-[#BC6C25]/10 flex items-center justify-center mr-3">
+                  <Mail className="w-5 h-5 text-[#BC6C25]" />
+                </div>
+                <h3 className="text-lg font-bold text-[#283618]">
+                  Direct Email
+                </h3>
+              </div>
+              <p className="text-[#606C38] mb-4">
+                For detailed inquiries and partnerships
+              </p>
+              <a
+                href="mailto:contact@proofofwitness.com"
+                className="text-[#BC6C25] font-medium hover:underline"
+              >
+                contact@proofofwitness.com
+              </a>
+            </Card>
+
+            {/* Community Chat */}
+            <Card className="p-6 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-xl hover:shadow-[#BC6C25]/10 bg-white/90 backdrop-blur-sm">
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 rounded-full bg-[#BC6C25]/10 flex items-center justify-center mr-3">
+                  <MessageSquare className="w-5 h-5 text-[#BC6C25]" />
+                </div>
+                <h3 className="text-lg font-bold text-[#283618]">
+                  Community Chat
+                </h3>
+              </div>
+              <p className="text-[#606C38] mb-4">
+                Join 2,000+ ZK developers and researchers for real-time
+                discussions.
+              </p>
+              <Button
+                className="w-full bg-[#BC6C25] hover:bg-[#283618] text-white font-semibold"
+                onClick={() =>
+                  window.open("https://t.me/+TPdx_Fc5_ONmNGJl", "_blank")
+                }
+              >
+                Join Telegram
+              </Button>
+            </Card>
+
+            {/* Book a Call */}
+            <Card className="p-6 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-xl hover:shadow-[#BC6C25]/10 bg-white/90 backdrop-blur-sm">
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 rounded-full bg-[#BC6C25]/10 flex items-center justify-center mr-3">
+                  <Video className="w-5 h-5 text-[#BC6C25]" />
+                </div>
+                <h3 className="text-lg font-bold text-[#283618]">
+                  Book a Call
+                </h3>
+              </div>
+              <p className="text-[#606C38] mb-4">
+                Schedule a 30-minute consultation with our ZK experts.
+              </p>
+              <div className="space-y-2 mb-4 text-sm text-[#606C38]">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4" />
+                  <span>30 minutes</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4" />
+                  <span>Available Mon-Fri</span>
+                </div>
+              </div>
+              <Button
+                className="w-full bg-gradient-to-r from-[#BC6C25] to-[#283618] hover:from-[#283618] hover:to-[#BC6C25] text-white font-semibold flex items-center justify-center gap-2"
+                onClick={() =>
+                  window.open(
+                    "https://calendly.com/proofofwitness/consultation",
+                    "_blank"
+                  )
+                }
+              >
+                <Calendar className="w-4 h-4" />
+                Schedule Call
+                <ExternalLink className="w-4 h-4" />
+              </Button>
+            </Card>
+          </motion.div>
+        </motion.div>
+
+        {/* Team Section */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, threshold: 0.1 }}
+          className="mb-20"
+        >
+          <motion.div variants={itemVariants} className="text-center mb-12">
+            <h2 className="text-4xl font-display font-bold text-[#283618] mb-4">
+              Meet Our <span className="italic text-[#BC6C25]">Team</span>
+            </h2>
+            <p className="text-lg text-[#606C38] max-w-3xl mx-auto">
+              Our diverse team of cryptographers, developers, and educators are
+              passionate about advancing zero-knowledge technology and building
+              inclusive communities.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{
+                  y: -8,
+                  transition: { duration: 0.3, ease: "easeOut" },
+                }}
+                className="group"
+              >
+                <Card className="p-6 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-xl hover:shadow-[#BC6C25]/10 h-full flex flex-col bg-white/90 backdrop-blur-sm">
+                  {/* Profile Image */}
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#BC6C25] to-[#283618] mx-auto mb-4 flex items-center justify-center">
+                    <div className="text-white text-2xl font-bold">
+                      {member.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </div>
+                  </div>
+
+                  {/* Name and Role */}
+                  <h3 className="text-lg font-bold text-[#283618] text-center mb-2 group-hover:text-[#BC6C25] transition-colors duration-300">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm font-medium text-[#BC6C25] text-center mb-4">
+                    {member.role}
+                  </p>
+
+                  {/* Bio */}
+                  <p className="text-sm text-[#606C38] text-center mb-4 flex-1 leading-relaxed">
+                    {member.bio}
+                  </p>
+
+                  {/* Expertise Tags */}
+                  <div className="flex flex-wrap gap-1 mb-4 justify-center">
+                    {member.expertise.map((skill, i) => (
+                      <span
+                        key={i}
+                        className="text-xs px-2 py-1 rounded-full bg-[#DDA15E]/20 text-[#BC6C25] font-medium"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Contact Links */}
+                  <div className="flex justify-center gap-3">
+                    <a
+                      href={`mailto:${member.email}`}
+                      className="w-8 h-8 rounded-full bg-[#BC6C25]/10 hover:bg-[#BC6C25]/20 flex items-center justify-center transition-colors duration-300"
+                    >
+                      <Mail className="w-4 h-4 text-[#BC6C25]" />
+                    </a>
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-8 h-8 rounded-full bg-[#BC6C25]/10 hover:bg-[#BC6C25]/20 flex items-center justify-center transition-colors duration-300"
+                    >
+                      <Linkedin className="w-4 h-4 text-[#BC6C25]" />
+                    </a>
+                    <a
+                      href={member.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-8 h-8 rounded-full bg-[#BC6C25]/10 hover:bg-[#BC6C25]/20 flex items-center justify-center transition-colors duration-300"
+                    >
+                      <Twitter className="w-4 h-4 text-[#BC6C25]" />
+                    </a>
+                    <a
+                      href={member.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-8 h-8 rounded-full bg-[#BC6C25]/10 hover:bg-[#BC6C25]/20 flex items-center justify-center transition-colors duration-300"
+                    >
+                      <Github className="w-4 h-4 text-[#BC6C25]" />
+                    </a>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </main>

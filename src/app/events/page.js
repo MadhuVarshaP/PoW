@@ -216,7 +216,7 @@ export default function EventsPage() {
           className="text-center mt-20"
         >
           <div className="bg-gradient-to-r from-[#BC6C25] to-[#283618] rounded-2xl p-8 text-white">
-            <h2 className="text-3xl font-bold mb-4">Don't Miss Out!</h2>
+            <h2 className="text-3xl font-bold mb-4">Don&apos;t Miss Out!</h2>
             <p className="text-lg mb-6 opacity-90">
               Join our community and stay updated with the latest events and
               workshops.
