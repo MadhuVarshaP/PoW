@@ -4,9 +4,10 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Calendar, MapPin, Clock, Users, ArrowRight } from "lucide-react";
+import { Calendar, MapPin, Clock, Users, ArrowRight, Sparkles, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import poster1 from "../../assets/poster1.png"
 
 export default function EventsPage() {
   const events = [
@@ -17,8 +18,8 @@ export default function EventsPage() {
       location: "Chennai, India",
       description:
         "Deep dive into zero-knowledge proofs and their applications in Web3. Learn from industry experts and network with fellow developers.",
-      image: "/events/chennai.jpg",
-      tags: ["Workshop", "Technical"],
+      image: poster1,
+      tags: ["WORKSHOP", "TECHNICAL"],
       attendees: "50+",
       status: "Open",
     },
@@ -29,8 +30,8 @@ export default function EventsPage() {
       location: "Bangalore, India",
       description:
         "Hands-on session on implementing ZK-SNARKs in your applications. Build real-world projects with guided mentorship.",
-      image: "/events/bangalore.jpg",
-      tags: ["Hands-on", "Development"],
+       image: poster1,
+      tags: ["HANDS-ON", "DEVELOPMENT"],
       attendees: "75+",
       status: "Filling Fast",
     },
@@ -41,8 +42,8 @@ export default function EventsPage() {
       location: "Mumbai, India",
       description:
         "Advanced concepts in zero-knowledge cryptography and privacy. Explore cutting-edge research and future applications.",
-      image: "/events/mumbai.jpg",
-      tags: ["Advanced", "Research"],
+      image: poster1,
+      tags: ["TALKS", "DEVELOPMENT"],
       attendees: "100+",
       status: "Open",
     },
@@ -62,15 +63,13 @@ export default function EventsPage() {
     hidden: {
       opacity: 0,
       y: 30,
-      scale: 0.95,
     },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: "easeOut",
       },
     },
   };
@@ -100,25 +99,30 @@ export default function EventsPage() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="flex flex-col space-y-8"
         >
           {events.map((event, index) => (
-            <motion.div
+           <motion.div
               key={index}
               variants={cardVariants}
-              whileHover={{
-                y: -8,
-                transition: { duration: 0.3, ease: "easeOut" },
-              }}
               className="group"
             >
-              <Card className="overflow-hidden border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-2xl hover:shadow-[#BC6C25]/10 h-full flex flex-col bg-white/80 backdrop-blur-sm">
-                {/* Image Section */}
-                <div className="relative h-56 bg-gradient-to-br from-[#283618] to-[#606C38] overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
+              <Card className="flex flex-col md:flex-row bg-[#FFFBF0] md:h-[300px] max-w-5xl mx-auto overflow-hidden border-2 border-[#DDA15E]/30 shadow-lg hover:shadow-xl transition-shadow duration-300 p-0">
+                {/* Left: Image - Full width on mobile, fixed width on desktop */}
+                <div className="relative w-full md:w-[300px] h-[220px] md:h-[300px] md:min-h-[300px] md:flex-shrink-0 overflow-hidden">
+                  <Image
+                    src={event.image}
+                    alt={event.title}
+                    fill
+                    className="object-cover w-full h-full"
+                    sizes="(max-width: 768px) 100vw, 300px"
+                    priority
+                  />
+
+                  {/* Status badge */}
                   <div className="absolute top-4 right-4 z-20">
                     <span
-                      className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                      className={`px-3 py-2 rounded-lg text-xs font-bold ${
                         event.status === "Filling Fast"
                           ? "bg-red-500 text-white"
                           : "bg-green-500 text-white"
@@ -127,105 +131,96 @@ export default function EventsPage() {
                       {event.status}
                     </span>
                   </div>
-                  <div className="absolute bottom-4 left-4 z-20 flex items-center text-white">
-                    <Users className="w-4 h-4 mr-2" />
-                    <span className="text-sm font-medium">
-                      {event.attendees} Expected
-                    </span>
-                  </div>
-                  {/* Placeholder for actual image */}
-                  <div className="w-full h-full flex items-center justify-center">
-                    <div className="text-white/60 text-4xl font-bold">ZK</div>
-                  </div>
                 </div>
 
-                {/* Content Section */}
-                <div className="p-6 flex-1 flex flex-col">
-                  {/* Tags */}
-                  <div className="flex gap-2 mb-4">
-                    {event.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className="text-xs font-semibold px-3 py-1 rounded-full bg-[#DDA15E]/20 text-[#BC6C25] border border-[#DDA15E]/30"
-                      >
-                        {tag}
+                {/* Right: Content */}
+                <div className="flex flex-col justify-between p-5 md:p-6 md:pl-8 flex-1">
+                  <div>
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {event.tags.map((tag, i) => (
+                        <span
+                          key={i}
+                          className="text-xs font-semibold px-3 py-1 rounded-full bg-[#DDA15E]/20 text-[#BC6C25] border border-[#DDA15E]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-xl md:text-2xl font-bold text-[#283618] mb-2">
+                      {event.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-[#606C38] text-sm mb-4 leading-relaxed line-clamp-3">
+                      {event.description}
+                    </p>
+
+                    {/* Event Details */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm text-[#606C38]">
+                      <div className="flex items-center">
+                        <Calendar className="w-4 h-4 text-[#BC6C25] mr-2" />
+                        <span className="font-semibold text-[#283618]">{event.date}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Clock className="w-4 h-4 text-[#BC6C25] mr-2" />
+                        <span className="font-semibold text-[#283618]">{event.time}</span>
+                      </div>
+                      <div className="flex items-center group/map">
+                        <MapPin className="w-4 h-4 text-[#BC6C25] mr-2" />
+                        <span className="font-semibold text-[#283618]">{event.location}</span>
+                        <ExternalLink className="w-3.5 h-3.5 ml-1.5 text-[#BC6C25]/70 group-hover/map:text-[#BC6C25] transition-colors cursor-pointer" />
+                      </div>
+                    </div>
+                    
+                    {/* Attendees info - Simplified version */}
+                    <div className="flex items-center mt-3 text-[#606C38]">
+                      <Users className="w-4 h-4 text-[#BC6C25] mr-2" />
+                      <span className="text-sm">
+                        {event.attendees} Expected
                       </span>
-                    ))}
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-2xl font-bold text-[#283618] mb-3 group-hover:text-[#BC6C25] transition-colors duration-300">
-                    {event.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-[#606C38] mb-6 leading-relaxed flex-1">
-                    {event.description}
-                  </p>
-
-                  {/* Event Details */}
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center text-[#606C38]">
-                      <div className="w-10 h-10 rounded-full bg-[#DDA15E]/20 flex items-center justify-center mr-3">
-                        <Calendar className="w-4 h-4 text-[#BC6C25]" />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-[#283618]">
-                          {event.date}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center text-[#606C38]">
-                      <div className="w-10 h-10 rounded-full bg-[#DDA15E]/20 flex items-center justify-center mr-3">
-                        <Clock className="w-4 h-4 text-[#BC6C25]" />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-[#283618]">
-                          {event.time}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center text-[#606C38]">
-                      <div className="w-10 h-10 rounded-full bg-[#DDA15E]/20 flex items-center justify-center mr-3">
-                        <MapPin className="w-4 h-4 text-[#BC6C25]" />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-[#283618]">
-                          {event.location}
-                        </div>
-                      </div>
                     </div>
                   </div>
 
-                  {/* Register Button */}
-                  <Button className="w-full bg-[#BC6C25] hover:bg-[#283618] text-white font-semibold py-3 rounded-lg transition-all duration-300 group-hover:shadow-lg flex items-center justify-center gap-2">
-                    Register Now
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                  </Button>
+                  {/* CTA Button */}
+                  <div className="mt-4">
+                    <Button className="bg-[#BC6C25] hover:bg-[#283618] text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 w-full sm:w-fit font-mono">
+                      <span> &gt; Register Now</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Button>
+                  </div>
                 </div>
               </Card>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Call to Action Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
           className="text-center mt-20"
         >
-          <div className="bg-gradient-to-r from-[#BC6C25] to-[#283618] rounded-2xl p-8 text-white">
-            <h2 className="text-3xl font-bold mb-4">Don&apos;t Miss Out!</h2>
-            <p className="text-lg mb-6 opacity-90">
+          <div className="bg-[#FFFBF0] border-4 border-[#BC6C25] rounded-2xl p-8 relative overflow-hidden">
+            {/* Decorative corner elements */}
+            <div className="absolute top-4 left-4 w-6 h-6 border-l-4 border-t-4 border-[#DDA15E]"></div>
+            <div className="absolute top-4 right-4 w-6 h-6 border-r-4 border-t-4 border-[#DDA15E]"></div>
+            <div className="absolute bottom-4 left-4 w-6 h-6 border-l-4 border-b-4 border-[#DDA15E]"></div>
+            <div className="absolute bottom-4 right-4 w-6 h-6 border-r-4 border-b-4 border-[#DDA15E]"></div>
+            
+            <Sparkles className="w-8 h-8 text-[#BC6C25] mx-auto mb-4" />
+            <h2 className="text-3xl font-bold mb-4 text-[#283618]">Don&apos;t Miss Out!</h2>
+            <p className="text-lg mb-6 text-[#606C38]">
               Join our community and stay updated with the latest events and
               workshops.
             </p>
-            <Button
-              variant="outline"
-              className="bg-white text-[#283618] hover:bg-[#FEFAE0] border-white font-semibold px-8 py-3"
-            >
-              Join Community
+            <Button className="bg-[#283618] hover:bg-[#BC6C25] text-white font-bold px-8 py-4 rounded-none border-4 border-[#283618] hover:border-[#BC6C25] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+              <span className="flex items-center gap-2">
+                Join Community
+                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+              </span>
             </Button>
           </div>
         </motion.div>
