@@ -190,22 +190,26 @@ export default function EventsPage() {
         </motion.div>
 
 
-  {isVisible && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 backdrop-blur-md bg-white/10 border border-white/30 px-6 py-3 rounded-full shadow-xl flex items-center gap-4 z-50 backdrop-saturate-150">
-          <span className="text-[#3A3A3A] font-semibold tracking-wide">🎉 Don’t miss new ZK events!</span>
-          
-<Button className="bg-[#606C38] text-[#FEFAE0] px-5 py-1.5 rounded-full text-xs uppercase tracking-wide font-mono border border-[#283618] hover:bg-[#283618] hover:text-white transition">
-  Join Community
-</Button>
+{isVisible && (
+  <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[70vw] max-w-md sm:max-w-lg md:max-w-lg backdrop-blur-md bg-white/10 border border-white/30 px-4 sm:px-6 py-3 rounded-full shadow-xl flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-between gap-3 z-50 backdrop-saturate-150">
+    
+    <span className="text-[#3A3A3A] text-sm sm:text-base font-semibold tracking-wide text-center sm:text-left">
+      🎉 Don’t miss new ZK events!
+    </span>
 
-          <button
-            onClick={() => setIsVisible(false)}
-            className="absolute -top-2 -right-2 bg-[#283618] text-[#FEFAE0] rounded-full p-1 hover:bg-[#BC6C25] transition-all"
-          >
-            <X size={14} />
-          </button>
-        </div>
-      )}
+    <Button className="bg-[#606C38] text-[#FEFAE0] px-5 py-1.5 rounded-full text-xs uppercase tracking-wide font-mono border border-[#283618] hover:bg-[#283618] hover:text-white transition">
+      Join Community
+    </Button>
+
+    <button
+      onClick={() => setIsVisible(false)}
+      className="absolute -top-2 -right-2 bg-[#283618] text-[#FEFAE0] rounded-full p-1 hover:bg-[#BC6C25] transition-all"
+    >
+      <X size={14} />
+    </button>
+  </div>
+)}
+
 
 
       </main>
