@@ -371,7 +371,7 @@ export default function ContributePage() {
           </div>
         </motion.div>
 
-        {/* Contribution Areas */}
+      {/* Contribution Areas */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -406,17 +406,13 @@ export default function ContributePage() {
                 {/* Opportunities Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {area.opportunities.map((opportunity, oppIndex) => (
-                    <motion.div
+                    <div
                       key={oppIndex}
-                      whileHover={{
-                        y: -6,
-                        transition: { duration: 0.2, ease: "easeOut" },
-                      }}
                       className="group"
                     >
-                      <Card className="p-5 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-lg hover:shadow-[#BC6C25]/10 h-full flex flex-col bg-white/90 backdrop-blur-sm">
+                      <Card className="p-5 border-2 border-[#DDA15E]/30 shadow-lg h-full flex flex-col bg-[#FFFBF0] transition-shadow">
                         {/* Header */}
-                        <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center justify-between">
                           <span className={`px-2 py-1 rounded-full text-xs font-semibold border ${getDifficultyColor(opportunity.difficulty)}`}>
                             {opportunity.difficulty}
                           </span>
@@ -426,15 +422,15 @@ export default function ContributePage() {
                         </div>
 
                         {/* Title and Description */}
-                        <h4 className="text-lg font-bold text-[#283618] mb-2 group-hover:text-[#BC6C25] transition-colors duration-300">
+                        <h4 className="text-lg font-bold text-[#283618] transition-colors duration-300">
                           {opportunity.title}
                         </h4>
-                        <p className="text-[#606C38] mb-4 leading-relaxed text-sm flex-1">
+                        <p className="text-[#606C38] leading-relaxed text-sm flex-1">
                           {opportunity.description}
                         </p>
 
                         {/* Skills Required */}
-                        <div className="mb-4">
+                        <div className="">
                           <h5 className="text-xs font-semibold text-[#283618] mb-2">Skills Required:</h5>
                           <div className="flex flex-wrap gap-1">
                             {opportunity.skills.map((skill, skillIndex) => (
@@ -449,7 +445,7 @@ export default function ContributePage() {
                         </div>
 
                         {/* Time Commitment */}
-                        <div className="flex items-center justify-between text-xs text-[#606C38] mb-4">
+                        <div className="flex items-center justify-between text-xs text-[#606C38] ">
                           <div className="flex items-center gap-1">
                             <Clock className="w-3 h-3" />
                             <span>{opportunity.timeCommitment}</span>
@@ -457,12 +453,12 @@ export default function ContributePage() {
                         </div>
 
                         {/* Action Button */}
-                        <Button className="w-full bg-[#BC6C25] hover:bg-[#283618] text-white font-semibold py-2 rounded-lg transition-all duration-300 group-hover:shadow-lg flex items-center justify-center gap-2 text-sm">
+                        <Button className="w-full bg-[#BC6C25] hover:bg-[#283618] text-white font-semibold py-2 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm cursor-pointer">
                           <ArrowRight className="w-4 h-4" />
                           Get Started
                         </Button>
                       </Card>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </motion.div>
@@ -486,35 +482,30 @@ export default function ContributePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {contributionProcess.map((step, index) => (
-              <motion.div
+              <div
                 key={index}
-                variants={cardVariants}
-                whileHover={{
-                  y: -4,
-                  transition: { duration: 0.2, ease: "easeOut" },
-                }}
                 className="group"
               >
-                <Card className="p-6 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-lg hover:shadow-[#BC6C25]/10 h-full flex flex-col bg-white/90 backdrop-blur-sm text-center">
+                <Card className="p-6 border-2 border-[#BC6C25]/20 h-full flex flex-col bg-[#FFFBF0] backdrop-blur-sm text-center">
                   {/* Step Number */}
-                  <div className="w-12 h-12 rounded-full bg-[#BC6C25] text-white font-bold text-lg flex items-center justify-center mx-auto mb-4">
+                  <div className="w-12 h-12 rounded-full bg-[#BC6C25] text-white font-bold text-lg flex items-center justify-center mx-auto mb-2">
                     {step.step}
                   </div>
 
                   {/* Icon */}
-                  <div className="w-12 h-12 rounded-lg bg-[#BC6C25]/10 flex items-center justify-center mx-auto mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-[#BC6C25]/10 flex items-center justify-center mx-auto ">
                     <step.icon className="w-6 h-6 text-[#BC6C25]" />
                   </div>
 
                   {/* Title and Description */}
-                  <h3 className="text-lg font-bold text-[#283618] mb-2 group-hover:text-[#BC6C25] transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-[#283618] transition-colors duration-300">
                     {step.title}
                   </h3>
                   <p className="text-[#606C38] text-sm leading-relaxed">
                     {step.description}
                   </p>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
         </motion.div>
@@ -535,31 +526,26 @@ export default function ContributePage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {recognitionProgram.map((recognition, index) => (
-              <motion.div
+              <div
                 key={index}
-                variants={cardVariants}
-                whileHover={{
-                  y: -8,
-                  transition: { duration: 0.2, ease: "easeOut" },
-                }}
                 className="group"
               >
-                <Card className="p-6 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-xl hover:shadow-[#BC6C25]/10 h-full flex flex-col bg-white/90 backdrop-blur-sm text-center">
+                <Card className="p-6 border-2 border-[#BC6C25]/20 h-full flex flex-col bg-[#FFFBF0] backdrop-blur-sm text-center">
                   {/* Icon */}
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-[#BC6C25] to-[#283618] flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 rounded-full bg-[#BC6C25] flex items-center justify-center mx-auto">
                     <recognition.icon className="w-8 h-8 text-white" />
                   </div>
 
                   {/* Title and Description */}
-                  <h3 className="text-xl font-bold text-[#283618] mb-2 group-hover:text-[#BC6C25] transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-[#283618] transition-colors duration-300">
                     {recognition.title}
                   </h3>
-                  <p className="text-[#606C38] mb-4 leading-relaxed text-sm flex-1">
+                  <p className="text-[#606C38] leading-relaxed text-sm flex-1">
                     {recognition.description}
                   </p>
 
                   {/* Criteria */}
-                  <div className="mb-4">
+                  <div className="">
                     <h4 className="text-sm font-semibold text-[#283618] mb-2">Criteria:</h4>
                     <span className="text-xs px-3 py-1 rounded-full bg-[#DDA15E]/30 text-[#BC6C25] font-medium">
                       {recognition.criteria}
@@ -579,52 +565,42 @@ export default function ContributePage() {
                     </div>
                   </div>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
         </motion.div>
 
-        {/* Call to Action */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.6 }}
-          className="mt-20"
-        >
-          <div className="bg-gradient-to-r from-[#BC6C25] to-[#283618] rounded-2xl p-8 text-white text-center">
-            <Rocket className="w-12 h-12 mx-auto mb-4 opacity-80" />
-            <h2 className="text-3xl font-bold mb-4">
-              Ready to Make an Impact?
-            </h2>
-            <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
-              Join our vibrant community of contributors and help shape the future of zero-knowledge technology. 
-              Every contribution, no matter how small, makes a difference.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                variant="outline"
-                className="bg-white text-[#283618] hover:bg-[#FEFAE0] border-white font-semibold px-8 py-3 flex items-center gap-2"
-              >
-                <Github className="w-4 h-4" />
-                View on GitHub
-              </Button>
-              <Button
-                variant="ghost"
-                className="text-white hover:bg-white/10 border border-white/30 font-semibold px-8 py-3 flex items-center gap-2"
-              >
-                <MessageCircle className="w-4 h-4" />
-                Join Discord
-              </Button>
-              <Button
-                variant="ghost"
-                className="text-white hover:bg-white/10 border border-white/30 font-semibold px-8 py-3 flex items-center gap-2"
-              >
-                <Mail className="w-4 h-4" />
-                Contact Us
-              </Button>
-            </div>
-          </div>
-        </motion.div>
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  className="fixed bottom-6 right-6 bg-[#283618] text-white p-5 rounded-xl shadow-xl z-50 max-w-sm w-full"
+>
+  <div className="flex items-center gap-3 mb-2">
+    <Rocket className="w-5 h-5 text-[#FEFAE0]" />
+    <h4 className="text-base font-bold">Make an Impact in ZK</h4>
+  </div>
+
+  <p className="text-sm opacity-80 mb-4">
+    Join contributors shaping the future of zero knowledge. Every bit counts.
+  </p>
+
+  <div className="flex flex-wrap gap-2">
+    <Button className="bg-[#FEFAE0] text-[#283618] text-xs font-bold py-2 px-4 rounded-md hover:bg-[#fff2c4] transition flex items-center gap-1 cursor-pointer">
+      <Github className="w-3 h-3" />
+      GitHub
+    </Button>
+    <Button className="bg-white/10 border border-white/30 text-white text-xs font-bold py-2 px-4 rounded-md hover:bg-white/20 transition flex items-center gap-1 cursor-pointer">
+      <MessageCircle className="w-3 h-3" />
+      Discord
+    </Button>
+    <Button className="bg-white/10 border border-white/30 text-white text-xs font-bold py-2 px-4 rounded-md hover:bg-white/20 transition flex items-center gap-1 cursor-pointer">
+      <Mail className="w-3 h-3" />
+      Contact
+    </Button>
+  </div>
+</motion.div>
+
       </main>
 
       <Footer />
