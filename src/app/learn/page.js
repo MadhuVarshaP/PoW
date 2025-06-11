@@ -311,7 +311,7 @@ export default function LearnPage() {
             Learn <span className="italic text-[#BC6C25]">Zero-Knowledge</span>
           </h1>
           <p className="text-xl text-[#606C38] max-w-4xl mx-auto leading-relaxed mb-8">
-            Free community-driven learning resources for mastering zero-knowledge technology. 
+            Free community-driven learning resources for mastering zero-knowledge technology.
             From fundamentals to advanced applications - everything you need to become a ZK expert.
           </p>
           <div className="flex justify-center gap-8 text-sm text-[#606C38]">
@@ -338,7 +338,8 @@ export default function LearnPage() {
           className="mb-20"
         >
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#283618] mb-4">Learning Paths</h2>
+            <h2 className="text-4xl font-bold text-[#283618] mb-4 font-display">Learning <span className="italic text-[#BC6C25]">Paths</span></h2>
+
             <p className="text-lg text-[#606C38] max-w-2xl mx-auto">
               Structured learning journeys designed by the community, for the community
             </p>
@@ -420,7 +421,7 @@ export default function LearnPage() {
           className="mb-20"
         >
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#283618] mb-4">Learning Resources</h2>
+            <h2 className="text-4xl font-bold text-[#283618] mb-4 font-display">Learning <span className="italic text-[#BC6C25]">Resources</span></h2>
             <p className="text-lg text-[#606C38] max-w-2xl mx-auto">
               Curated collection of free resources to accelerate your ZK journey
             </p>
@@ -512,15 +513,16 @@ export default function LearnPage() {
           </div>
         </motion.div>
 
+
         {/* Community Workshops Section */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="mb-20"
+          className="my-20"
         >
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#283618] mb-4">Community Workshops</h2>
+            <h2 className="text-4xl font-bold text-[#283618] mb-4 font-display">Community <span className="italic text-[#BC6C25]">Workshops</span></h2>
             <p className="text-lg text-[#606C38] max-w-2xl mx-auto">
               Join live workshops and connect with fellow ZK enthusiasts
             </p>
@@ -586,39 +588,22 @@ export default function LearnPage() {
           </div>
         </motion.div>
 
-        {/* Community Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.6 }}
-          className="mt-20"
-        >
-          <div className="bg-gradient-to-r from-[#BC6C25] to-[#283618] rounded-2xl p-8 text-white text-center">
-            <Shield className="w-12 h-12 mx-auto mb-4 opacity-80" />
-            <h2 className="text-3xl font-bold mb-4">
-              Join Our Learning Community
-            </h2>
-            <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
-              Connect with thousands of ZK enthusiasts, share knowledge, and build the future of privacy together. 
-              Everything is free and open-source.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                variant="outline"
-                className="bg-white text-[#283618] hover:bg-[#FEFAE0] border-white font-semibold px-8 py-3"
-              >
-                Join Discord
-              </Button>
-              <Button
-                variant="ghost"
-                className="text-white hover:bg-white/10 border border-white/30 font-semibold px-8 py-3"
-              >
-                Contribute Resources
-              </Button>
-            </div>
-          </div>
-        </motion.div>
       </main>
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="fixed bottom-6 right-6 bg-[#283618] text-white p-4 rounded-xl shadow-lg z-50"
+      >
+        <h4 className="text-sm font-bold mb-1">🛠 Join Our Builder Hub</h4>
+        <p className="text-xs opacity-80 mb-2">Get resources, support & collab on ZK ideas.</p>
+        <Button className="bg-[#FEFAE0] text-[#283618] text-xs font-bold py-1 px-4 rounded-md">
+          Join Now
+        </Button>
+      </motion.div>
+
+
 
       <Footer />
     </div>
