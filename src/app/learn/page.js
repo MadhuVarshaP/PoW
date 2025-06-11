@@ -572,12 +572,10 @@ export default function LearnPage() {
                     </div>
                   </div>
 
-                  {/* Instructor */}
                   <p className="text-xs text-[#606C38] font-medium">
                     Led by {workshop.instructor}
                   </p>
 
-                  {/* Action Button */}
                   <Button className="w-full bg-[#BC6C25] hover:bg-[#283618] text-white font-semibold py-2 rounded-lg transition-all duration-300 group-hover:shadow-lg flex items-center justify-center gap-2 text-sm">
                     <Calendar className="w-4 h-4" />
                     Join Workshop
@@ -596,11 +594,18 @@ export default function LearnPage() {
         transition={{ duration: 0.6 }}
         className="fixed bottom-6 right-6 bg-[#283618] text-white p-4 rounded-xl shadow-lg z-50"
       >
-        <h4 className="text-sm font-bold mb-1">🛠 Join Our Builder Hub</h4>
+          <h4 className="text-sm font-bold mb-1">Join Our Builder Hub</h4>
+        
+
         <p className="text-xs opacity-80 mb-2">Get resources, support & collab on ZK ideas.</p>
-        <Button className="bg-[#FEFAE0] text-[#283618] text-xs font-bold py-1 px-4 rounded-md">
-          Join Now
-        </Button>
+        <div className="flex gap-3">
+          <Button className="bg-[#FEFAE0] text-[#283618] text-xs font-bold py-1 px-4 rounded-md hover:bg-[#FEFAE0] hover:text-[#283618] cursor-pointer">
+            &gt; Join Now
+          </Button>
+          <Button className="bg-[#FEFAE0] text-[#283618] text-xs font-bold py-1 px-4 rounded-md hover:bg-[#FEFAE0] hover:text-[#283618] cursor-pointer">
+            &gt; Contribute
+          </Button>
+        </div>
       </motion.div>
 
 
