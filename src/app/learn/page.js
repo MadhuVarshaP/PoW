@@ -349,15 +349,11 @@ export default function LearnPage() {
               <motion.div
                 key={index}
                 variants={cardVariants}
-                whileHover={{
-                  y: -8,
-                  transition: { duration: 0.2, ease: "easeOut" },
-                }}
                 className="group"
               >
-                <Card className="p-5 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-lg hover:shadow-[#BC6C25]/10 h-full flex flex-col bg-white/90 backdrop-blur-sm">
+                <Card className="p-5 border-2 border-[#BC6C25]/20 h-full w-full flex flex-col bg-[#FFFBF0] backdrop-blur-sm">
                   {/* Header */}
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center justify-between">
                     <div className="w-10 h-10 rounded-lg bg-[#BC6C25]/10 flex items-center justify-center">
                       <path.icon className="w-5 h-5 text-[#BC6C25]" />
                     </div>
@@ -367,18 +363,18 @@ export default function LearnPage() {
                   </div>
 
                   {/* Title and Type */}
-                  <h3 className="text-lg font-bold text-[#283618] mb-1 group-hover:text-[#BC6C25] transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-[#283618] group-hover:text-[#BC6C25] transition-colors duration-300">
                     {path.title}
                   </h3>
-                  <p className="text-xs text-[#BC6C25] font-medium mb-3">{path.type}</p>
+                  <p className="text-xs text-[#BC6C25] font-medium ">{path.type}</p>
 
                   {/* Description */}
-                  <p className="text-[#606C38] mb-4 leading-relaxed text-sm flex-1">
+                  <p className="text-[#606C38]leading-relaxed text-sm flex-1">
                     {path.description}
                   </p>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-1 mb-4">
+                  <div className="flex flex-wrap gap-1">
                     {path.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
@@ -390,7 +386,7 @@ export default function LearnPage() {
                   </div>
 
                   {/* Stats */}
-                  <div className="flex items-center justify-between text-xs text-[#606C38] mb-4">
+                  <div className="flex items-center justify-between text-xs text-[#606C38] mb-2">
                     <div className="flex items-center gap-1">
                       <Clock className="w-3 h-3" />
                       <span>{path.duration}</span>
@@ -406,7 +402,7 @@ export default function LearnPage() {
                   </div>
 
                   {/* Action Button */}
-                  <Button className="w-full bg-[#BC6C25] hover:bg-[#283618] text-white font-semibold py-2 rounded-lg transition-all duration-300 group-hover:shadow-lg flex items-center justify-center gap-2 text-sm">
+                  <Button className="w-full bg-[#BC6C25] hover:bg-[#283618] cursor-pointer text-white font-semibold py-2 rounded-lg transition-all duration-300 group-hover:shadow-lg flex items-center justify-center gap-2 text-sm">
                     <Play className="w-4 h-4" />
                     Start Learning
                   </Button>
@@ -452,15 +448,11 @@ export default function LearnPage() {
                     return (
                       <motion.div
                         key={itemIndex}
-                        whileHover={{
-                          y: -4,
-                          transition: { duration: 0.2, ease: "easeOut" },
-                        }}
                         className="group"
                       >
-                        <Card className="p-4 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-lg hover:shadow-[#BC6C25]/10 h-full flex flex-col bg-white/90 backdrop-blur-sm">
+                        <Card className="p-4 border-2 border-[#BC6C25]/20 h-full w-full flex flex-col bg-[#FFFBF0] backdrop-blur-sm">
                           {/* Header */}
-                          <div className="flex items-center justify-between mb-3">
+                          <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
                               <div className="w-8 h-8 rounded-lg bg-[#DDA15E]/20 flex items-center justify-center">
                                 <TypeIcon className="w-4 h-4 text-[#BC6C25]" />
@@ -475,18 +467,18 @@ export default function LearnPage() {
                           </div>
 
                           {/* Title and Author */}
-                          <h4 className="text-base font-bold text-[#283618] mb-1 group-hover:text-[#BC6C25] transition-colors duration-300">
+                          <h4 className="text-base font-bold text-[#283618] group-hover:text-[#BC6C25] transition-colors duration-300">
                             {item.title}
                           </h4>
-                          <p className="text-xs text-[#606C38] font-medium mb-2">by {item.author}</p>
+                          <p className="text-xs text-[#606C38] font-medium">by {item.author}</p>
 
                           {/* Description */}
-                          <p className="text-[#606C38] mb-3 leading-relaxed flex-1 text-sm">
+                          <p className="text-[#606C38] leading-relaxed flex-1 text-sm">
                             {item.description}
                           </p>
 
                           {/* Tags */}
-                          <div className="flex flex-wrap gap-1 mb-3">
+                          <div className="flex flex-wrap gap-1 ">
                             {item.tags.map((tag, tagIndex) => (
                               <span
                                 key={tagIndex}
@@ -539,15 +531,11 @@ export default function LearnPage() {
               <motion.div
                 key={index}
                 variants={cardVariants}
-                whileHover={{
-                  y: -6,
-                  transition: { duration: 0.2, ease: "easeOut" },
-                }}
                 className="group"
               >
-                <Card className="p-5 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-lg hover:shadow-[#BC6C25]/10 h-full flex flex-col bg-white/90 backdrop-blur-sm">
+                <Card className="p-5 border-2 border-[#BC6C25]/20 h-full w-full flex flex-col bg-[#FFFBF0] backdrop-blur-sm">
                   {/* Header */}
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center justify-between">
                     <div className="w-10 h-10 rounded-lg bg-[#BC6C25]/10 flex items-center justify-center">
                       <Calendar className="w-5 h-5 text-[#BC6C25]" />
                     </div>
@@ -557,17 +545,17 @@ export default function LearnPage() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-bold text-[#283618] mb-2 group-hover:text-[#BC6C25] transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-[#283618] group-hover:text-[#BC6C25] transition-colors duration-300">
                     {workshop.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-[#606C38] mb-4 leading-relaxed text-sm flex-1">
+                  <p className="text-[#606C38] leading-relaxed text-sm flex-1">
                     {workshop.description}
                   </p>
 
                   {/* Workshop Details */}
-                  <div className="space-y-2 mb-4 text-sm text-[#606C38]">
+                  <div className="space-y-1 text-sm text-[#606C38]">
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-[#BC6C25]" />
                       <span>{workshop.date}</span>
@@ -583,7 +571,7 @@ export default function LearnPage() {
                   </div>
 
                   {/* Instructor */}
-                  <p className="text-xs text-[#606C38] font-medium mb-4">
+                  <p className="text-xs text-[#606C38] font-medium">
                     Led by {workshop.instructor}
                   </p>
 

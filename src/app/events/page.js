@@ -33,7 +33,7 @@ export default function EventsPage() {
       location: "Bangalore, India",
       description:
         "Hands-on session on implementing ZK-SNARKs in your applications. Build real-world projects with guided mentorship.",
-       image: poster1,
+      image: poster1,
       tags: ["HANDS-ON", "DEVELOPMENT"],
       attendees: "75+",
       status: "Filling Fast",
@@ -105,7 +105,7 @@ export default function EventsPage() {
           className="flex flex-col space-y-8"
         >
           {events.map((event, index) => (
-           <motion.div
+            <motion.div
               key={index}
               variants={cardVariants}
               className="group"
@@ -123,11 +123,10 @@ export default function EventsPage() {
 
                   <div className="absolute top-4 right-4 z-20">
                     <span
-                      className={`px-3 py-2 rounded-lg text-xs font-bold ${
-                        event.status === "Filling Fast"
+                      className={`px-3 py-2 rounded-lg text-xs font-bold ${event.status === "Filling Fast"
                           ? "bg-red-500 text-white"
                           : "bg-green-500 text-white"
-                      }`}
+                        }`}
                     >
                       {event.status}
                     </span>
@@ -190,28 +189,25 @@ export default function EventsPage() {
         </motion.div>
 
 
-{isVisible && (
-  <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[70vw] max-w-md sm:max-w-lg md:max-w-lg backdrop-blur-md bg-white/10 border border-white/30 px-4 sm:px-6 py-3 rounded-full shadow-xl flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-between gap-3 z-50 backdrop-saturate-150">
-    
-    <span className="text-[#3A3A3A] text-sm sm:text-base font-semibold tracking-wide text-center sm:text-left">
-      🎉 Don’t miss new ZK events!
-    </span>
+        {isVisible && (
+          <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[70vw] max-w-md sm:max-w-lg md:max-w-lg backdrop-blur-md bg-white/10 border border-white/30 px-4 sm:px-6 py-3 rounded-full shadow-xl flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-between gap-3 z-50 backdrop-saturate-150">
 
-    <Button className="bg-[#606C38] text-[#FEFAE0] px-5 py-1.5 rounded-full text-xs uppercase tracking-wide font-mono border border-[#283618] hover:bg-[#283618] hover:text-white transition">
-      Join Community
-    </Button>
+            <span className="text-[#3A3A3A] text-sm sm:text-base font-semibold tracking-wide text-center sm:text-left">
+              🎉 Don’t miss new ZK events!
+            </span>
 
-    <button
-      onClick={() => setIsVisible(false)}
-      className="absolute -top-2 -right-2 bg-[#283618] text-[#FEFAE0] rounded-full p-1 hover:bg-[#BC6C25] transition-all"
-    >
-      <X size={14} />
-    </button>
-  </div>
-)}
+            <Button className="bg-[#606C38] text-[#FEFAE0] px-5 py-1.5 rounded-full text-xs uppercase tracking-wide font-mono border border-[#283618] hover:bg-[#283618] hover:text-white transition">
+              Join Community
+            </Button>
 
-
-
+            <button
+              onClick={() => setIsVisible(false)}
+              className="absolute -top-2 -right-2 bg-[#283618] text-[#FEFAE0] rounded-full p-1 hover:bg-[#BC6C25] transition-all"
+            >
+              <X size={14} />
+            </button>
+          </div>
+        )}
       </main>
 
       <Footer />
