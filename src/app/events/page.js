@@ -4,12 +4,15 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Calendar, MapPin, Clock, Users, ArrowRight, Sparkles, ExternalLink } from "lucide-react";
+import { Calendar, MapPin, Clock, Users, ArrowRight, ExternalLink, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import poster1 from "../../assets/poster1.png"
+import { useState } from "react";
 
 export default function EventsPage() {
+  const [isVisible, setIsVisible] = useState(true);
+
   const events = [
     {
       title: "ZK Witness Chennai",
@@ -108,7 +111,6 @@ export default function EventsPage() {
               className="group"
             >
               <Card className="flex flex-col md:flex-row bg-[#FFFBF0] md:h-[300px] max-w-5xl mx-auto overflow-hidden border-2 border-[#DDA15E]/30 shadow-lg hover:shadow-xl transition-shadow duration-300 p-0">
-                {/* Left: Image - Full width on mobile, fixed width on desktop */}
                 <div className="relative w-full md:w-[300px] h-[220px] md:h-[300px] md:min-h-[300px] md:flex-shrink-0 overflow-hidden">
                   <Image
                     src={event.image}
@@ -119,7 +121,6 @@ export default function EventsPage() {
                     priority
                   />
 
-                  {/* Status badge */}
                   <div className="absolute top-4 right-4 z-20">
                     <span
                       className={`px-3 py-2 rounded-lg text-xs font-bold ${
@@ -133,10 +134,8 @@ export default function EventsPage() {
                   </div>
                 </div>
 
-                {/* Right: Content */}
                 <div className="flex flex-col justify-between p-5 md:p-6 md:pl-8 flex-1">
                   <div>
-                    {/* Tags */}
                     <div className="flex flex-wrap gap-2 mb-3">
                       {event.tags.map((tag, i) => (
                         <span
@@ -148,17 +147,14 @@ export default function EventsPage() {
                       ))}
                     </div>
 
-                    {/* Title */}
                     <h3 className="text-xl md:text-2xl font-bold text-[#283618] mb-2">
                       {event.title}
                     </h3>
 
-                    {/* Description */}
                     <p className="text-[#606C38] text-sm mb-4 leading-relaxed line-clamp-3">
                       {event.description}
                     </p>
 
-                    {/* Event Details */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm text-[#606C38]">
                       <div className="flex items-center">
                         <Calendar className="w-4 h-4 text-[#BC6C25] mr-2" />
@@ -174,8 +170,6 @@ export default function EventsPage() {
                         <ExternalLink className="w-3.5 h-3.5 ml-1.5 text-[#BC6C25]/70 group-hover/map:text-[#BC6C25] transition-colors cursor-pointer" />
                       </div>
                     </div>
-                    
-                    {/* Attendees info - Simplified version */}
                     <div className="flex items-center mt-3 text-[#606C38]">
                       <Users className="w-4 h-4 text-[#BC6C25] mr-2" />
                       <span className="text-sm">
@@ -183,8 +177,6 @@ export default function EventsPage() {
                       </span>
                     </div>
                   </div>
-
-                  {/* CTA Button */}
                   <div className="mt-4">
                     <Button className="bg-[#BC6C25] hover:bg-[#283618] text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 w-full sm:w-fit font-mono">
                       <span> &gt; Register Now</span>
@@ -197,33 +189,25 @@ export default function EventsPage() {
           ))}
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="text-center mt-20"
-        >
-          <div className="bg-[#FFFBF0] border-4 border-[#BC6C25] rounded-2xl p-8 relative overflow-hidden">
-            {/* Decorative corner elements */}
-            <div className="absolute top-4 left-4 w-6 h-6 border-l-4 border-t-4 border-[#DDA15E]"></div>
-            <div className="absolute top-4 right-4 w-6 h-6 border-r-4 border-t-4 border-[#DDA15E]"></div>
-            <div className="absolute bottom-4 left-4 w-6 h-6 border-l-4 border-b-4 border-[#DDA15E]"></div>
-            <div className="absolute bottom-4 right-4 w-6 h-6 border-r-4 border-b-4 border-[#DDA15E]"></div>
-            
-            <Sparkles className="w-8 h-8 text-[#BC6C25] mx-auto mb-4" />
-            <h2 className="text-3xl font-bold mb-4 text-[#283618]">Don&apos;t Miss Out!</h2>
-            <p className="text-lg mb-6 text-[#606C38]">
-              Join our community and stay updated with the latest events and
-              workshops.
-            </p>
-            <Button className="bg-[#283618] hover:bg-[#BC6C25] text-white font-bold px-8 py-4 rounded-none border-4 border-[#283618] hover:border-[#BC6C25] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
-              <span className="flex items-center gap-2">
-                Join Community
-                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-              </span>
-            </Button>
-          </div>
-        </motion.div>
+
+  {isVisible && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 backdrop-blur-md bg-white/10 border border-white/30 px-6 py-3 rounded-full shadow-xl flex items-center gap-4 z-50 backdrop-saturate-150">
+          <span className="text-[#3A3A3A] font-semibold tracking-wide">🎉 Don’t miss new ZK events!</span>
+          
+<Button className="bg-[#606C38] text-[#FEFAE0] px-5 py-1.5 rounded-full text-xs uppercase tracking-wide font-mono border border-[#283618] hover:bg-[#283618] hover:text-white transition">
+  Join Community
+</Button>
+
+          <button
+            onClick={() => setIsVisible(false)}
+            className="absolute -top-2 -right-2 bg-[#283618] text-[#FEFAE0] rounded-full p-1 hover:bg-[#BC6C25] transition-all"
+          >
+            <X size={14} />
+          </button>
+        </div>
+      )}
+
+
       </main>
 
       <Footer />
