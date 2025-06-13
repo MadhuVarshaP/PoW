@@ -10,6 +10,18 @@ module.exports = {
   ],
   theme: {
     extend: {
+
+  animation: {
+    'gradient-move': 'gradientMove 10s ease infinite',
+  },
+  keyframes: {
+    gradientMove: {
+      '0%': { backgroundPosition: '0% 50%' },
+      '50%': { backgroundPosition: '100% 50%' },
+      '100%': { backgroundPosition: '0% 50%' },
+    },
+  },
+
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

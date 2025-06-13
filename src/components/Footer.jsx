@@ -6,8 +6,9 @@ import { IoLogoGithub } from "react-icons/io";
 
 function Footer() {
   return (
-    <footer className="bg-[#283618] text-[#FEFAE0] py-12 px-8">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-[#283618] text-[#FEFAE0] py-12 px-6 sm:px-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {/* Column 1: Branding */}
         <div>
           <h3 className="font-display text-2xl font-bold mb-2">
             Proof of Witness
@@ -20,7 +21,8 @@ function Footer() {
           </p>
         </div>
 
-        <div className="flex flex-col items-start md:items-center gap-4">
+        {/* Column 2: Community Links */}
+        <div className="flex flex-col items-start sm:items-start md:items-center gap-4">
           <h4 className="font-inter font-semibold text-lg text-[#DDA15E]">
             Join the Community
           </h4>
@@ -44,7 +46,8 @@ function Footer() {
           </div>
         </div>
 
-        <div className="text-right space-y-2 text-sm font-inter text-[#FEFAE0]/80">
+        {/* Column 3: Extra Links */}
+        <div className="space-y-2 text-sm font-inter text-[#FEFAE0]/80 sm:text-left md:text-right">
           <a
             href="#"
             className="block hover:text-[#DDA15E] transition"

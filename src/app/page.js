@@ -19,6 +19,7 @@ import { IoLogoGithub } from "react-icons/io";
 import { RiTwitterXFill } from "react-icons/ri";
 import { LiaTelegram } from "react-icons/lia";
 import { TypingLine } from "@/components/TypingLine";
+import HeroSection from "@/components/HeroSection";
 
 export default function Component() {
   const { scrollYProgress } = useScroll({
@@ -115,62 +116,7 @@ export default function Component() {
       <Navbar />
 
       {/* Hero Section */}
-      <section
-        ref={heroRef}
-        className="min-h-screen flex items-center justify-center relative pt-20"
-      >
-        <motion.div
-          className="absolute top-20 right-20 w-32 h-32 bg-[#DDA15E]/20 rounded-full blur-xl"
-          variants={floatingVariants}
-          animate="animate"
-        />
-        <motion.div
-          className="absolute bottom-40 left-20 w-24 h-24 bg-[#606C38]/20 rounded-full blur-xl"
-          variants={floatingVariants}
-          animate="animate"
-          transition={{ delay: 2 }}
-        />
-
-        <motion.div
-          className="text-center max-w-4xl mx-auto px-6"
-          variants={containerVariants}
-          initial="hidden"
-          animate={heroInView ? "visible" : "hidden"}
-        >
-          <motion.h1
-            className="text-6xl md:text-8xl font-display font-bold text-[#283618] mb-6 leading-tight italic"
-            variants={itemVariants}
-          >
-            Proof of Witness
-          </motion.h1>
-          <motion.p
-            className="text-xl md:text-2xl text-[#606C38] mb-8 italic font-display"
-            variants={itemVariants}
-          >
-            A narrative-first zk builder community
-          </motion.p>
-          <motion.div variants={itemVariants}>
-            <div className="relative inline-block group">
-              <Button
-                size="lg"
-                className="bg-[#BC6C25] hover:bg-[#283618] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 font-poppins"
-                onClick={() =>
-                  window.open("https://t.me/+TPdx_Fc5_ONmNGJl", "_blank")
-                }
-              >
-                {" "}
-                Join the Witness
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-
-              <span className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 text-xs font-mono bg-[#DDA15E] text-black px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
-                $ rsvp --proof
-              </span>
-            </div>
-          </motion.div>
-        </motion.div>
-      </section>
-
+      <HeroSection heroRef={heroRef} heroInView={heroInView} />
       {/* About Section */}
       <section ref={aboutRef} className="py-20 bg-[#283618]">
         <motion.div
