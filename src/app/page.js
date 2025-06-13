@@ -285,7 +285,7 @@ export default function Component() {
                 title: "Community Building",
                 description:
                   "Foster connections between ZK enthusiasts globally.",
-                color: "from-[#606C38] to-[#283618]",
+                color: "from-[#283618] to-[#DDA15E]",
               },
             ].map((activity, index) => (
               <motion.div key={index} variants={itemVariants}>
@@ -296,8 +296,7 @@ export default function Component() {
                   viewport={{ once: true }}
                   className="h-full"
                 >
-                  <div className="relative group bg-white rounded-xl border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 p-5 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-[200px] flex flex-col">
-                    {/* Header with Icon */}
+                  <div className="relative group bg-[#FFFBF0] rounded-xl border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 p-5 transition-shadow duration-300 overflow-hidden h-[200px] flex flex-col">
                     <div className="flex items-center justify-between mb-4">
                       <div
                         className={`w-12 h-12 rounded-full bg-gradient-to-r ${activity.color} flex items-center justify-center shadow-md`}

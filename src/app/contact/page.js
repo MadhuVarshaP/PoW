@@ -12,15 +12,16 @@ import {
   MapPin,
   Clock,
   Phone,
-  Linkedin,
-  Twitter,
-  Github,
   ExternalLink,
   Users,
   MessageCircle,
   Video,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { FaLinkedinIn } from "react-icons/fa";
+import { RiTwitterXFill } from "react-icons/ri";
+import { IoLogoGithub } from "react-icons/io";
+
 
 export default function ContactPage() {
   const teamMembers = [
@@ -111,8 +112,8 @@ export default function ContactPage() {
         >
           {/* Contact Form */}
           <motion.div variants={itemVariants} className="lg:col-span-2">
-            <Card className="p-8 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-xl hover:shadow-[#BC6C25]/10 bg-white/90 backdrop-blur-sm">
-              <div className="flex items-center mb-6">
+            <Card className="p-8 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-shadow duration-300 bg-[#FFFBF0] backdrop-blur-sm">
+              <div className="flex items-center ">
                 <div className="w-12 h-12 rounded-full bg-[#BC6C25]/10 flex items-center justify-center mr-4">
                   <Send className="w-6 h-6 text-[#BC6C25]" />
                 </div>
@@ -194,8 +195,8 @@ export default function ContactPage() {
           {/* Quick Contact & Book a Call */}
           <motion.div variants={itemVariants} className="space-y-6">
             {/* Email Contact */}
-            <Card className="p-6 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-xl hover:shadow-[#BC6C25]/10 bg-white/90 backdrop-blur-sm">
-              <div className="flex items-center mb-4">
+            <Card className="p-6 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-shadow duration-300 bg-[#FFFBF0] backdrop-blur-sm">
+              <div className="flex items-center ">
                 <div className="w-10 h-10 rounded-full bg-[#BC6C25]/10 flex items-center justify-center mr-3">
                   <Mail className="w-5 h-5 text-[#BC6C25]" />
                 </div>
@@ -203,7 +204,7 @@ export default function ContactPage() {
                   Direct Email
                 </h3>
               </div>
-              <p className="text-[#606C38] mb-4">
+              <p className="text-[#606C38]">
                 For detailed inquiries and partnerships
               </p>
               <a
@@ -215,8 +216,8 @@ export default function ContactPage() {
             </Card>
 
             {/* Community Chat */}
-            <Card className="p-6 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-xl hover:shadow-[#BC6C25]/10 bg-white/90 backdrop-blur-sm">
-              <div className="flex items-center mb-4">
+            <Card className="p-6 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-shadow duration-300 bg-[#FFFBF0] backdrop-blur-sm">
+              <div className="flex items-center">
                 <div className="w-10 h-10 rounded-full bg-[#BC6C25]/10 flex items-center justify-center mr-3">
                   <MessageSquare className="w-5 h-5 text-[#BC6C25]" />
                 </div>
@@ -224,7 +225,7 @@ export default function ContactPage() {
                   Community Chat
                 </h3>
               </div>
-              <p className="text-[#606C38] mb-4">
+              <p className="text-[#606C38]">
                 Join 2,000+ ZK developers and researchers for real-time
                 discussions.
               </p>
@@ -239,8 +240,8 @@ export default function ContactPage() {
             </Card>
 
             {/* Book a Call */}
-            <Card className="p-6 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-all duration-300 hover:shadow-xl hover:shadow-[#BC6C25]/10 bg-white/90 backdrop-blur-sm">
-              <div className="flex items-center mb-4">
+            <Card className="p-6 border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 transition-shadow duration-300 bg-[#FFFBF0] backdrop-blur-sm">
+              <div className="flex items-center">
                 <div className="w-10 h-10 rounded-full bg-[#BC6C25]/10 flex items-center justify-center mr-3">
                   <Video className="w-5 h-5 text-[#BC6C25]" />
                 </div>
@@ -248,10 +249,10 @@ export default function ContactPage() {
                   Book a Call
                 </h3>
               </div>
-              <p className="text-[#606C38] mb-4">
+              <p className="text-[#606C38]">
                 Schedule a 30-minute consultation with our ZK experts.
               </p>
-              <div className="space-y-2 mb-4 text-sm text-[#606C38]">
+              <div className="space-y-2 text-sm text-[#606C38]">
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4" />
                   <span>30 minutes</span>
@@ -262,7 +263,7 @@ export default function ContactPage() {
                 </div>
               </div>
               <Button
-                className="w-full bg-gradient-to-r from-[#BC6C25] to-[#283618] hover:from-[#283618] hover:to-[#BC6C25] text-white font-semibold flex items-center justify-center gap-2"
+                className="w-full bg-[#BC6C25] hover:bg-[#283618] text-white font-semibold flex items-center justify-center gap-2"
                 onClick={() =>
                   window.open(
                     "https://calendly.com/proofofwitness/consultation",
@@ -297,7 +298,7 @@ export default function ContactPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6 ">
             {teamMembers.map((member, index) => (
               <motion.div key={index} variants={itemVariants}>
                 <motion.div
@@ -307,7 +308,7 @@ export default function ContactPage() {
                   viewport={{ once: true }}
                   className="h-full"
                 >
-                  <div className="relative group bg-white border-l-4 border-[#BC6C25] p-5 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-[240px] flex flex-col">
+                  <div className="relative group bg-white border-l-4 border-[#BC6C25] p-5 rounded-lg transition-shadow duration-300 overflow-hidden h-[240px] flex flex-col w-[400px]">
                     <div className="absolute top-3 left-3 text-xs text-[#BC6C25] font-mono bg-[#fefae0] px-2 py-0.5 rounded">
                       $ team
                     </div>
@@ -323,7 +324,7 @@ export default function ContactPage() {
                     </div>
 
                     {/* Name and Role */}
-                    <h3 className="text-base font-mono text-[#283618] mb-1 pl-5">
+                    <h3 className="text-base font-mono text-[#283618] mb-1 pl-5 font-semibold">
                       <span className="text-[#BC6C25]">#</span> {member.name}
                     </h3>
                     <p className="text-xs font-mono text-[#BC6C25] mb-3 pl-5">
@@ -351,7 +352,7 @@ export default function ContactPage() {
                         rel="noopener noreferrer"
                         className="w-6 h-6 rounded bg-[#BC6C25]/10 hover:bg-[#BC6C25]/20 flex items-center justify-center transition-colors duration-300"
                       >
-                        <Linkedin className="w-3 h-3 text-[#BC6C25]" />
+                        <FaLinkedinIn className="w-3 h-3 text-[#BC6C25]" />
                       </a>
                       <a
                         href={member.twitter}
@@ -359,7 +360,7 @@ export default function ContactPage() {
                         rel="noopener noreferrer"
                         className="w-6 h-6 rounded bg-[#BC6C25]/10 hover:bg-[#BC6C25]/20 flex items-center justify-center transition-colors duration-300"
                       >
-                        <Twitter className="w-3 h-3 text-[#BC6C25]" />
+                        <RiTwitterXFill className="w-3 h-3 text-[#BC6C25]" />
                       </a>
                       <a
                         href={member.github}
@@ -367,7 +368,7 @@ export default function ContactPage() {
                         rel="noopener noreferrer"
                         className="w-6 h-6 rounded bg-[#BC6C25]/10 hover:bg-[#BC6C25]/20 flex items-center justify-center transition-colors duration-300"
                       >
-                        <Github className="w-3 h-3 text-[#BC6C25]" />
+                        <IoLogoGithub className="w-3 h-3 text-[#BC6C25]" />
                       </a>
                     </div>
 

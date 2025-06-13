@@ -16,7 +16,7 @@ export default function EventsPage() {
   const events = [
     {
       title: "ZK Witness Chennai",
-      date: "June 21, 2024",
+      date: "June 21, 2025",
       time: "2:00 PM IST",
       location: "Chennai, India",
       description:
@@ -28,7 +28,7 @@ export default function EventsPage() {
     },
     {
       title: "ZK Witness Bangalore",
-      date: "July 10, 2024",
+      date: "July 10, 2025",
       time: "3:00 PM IST",
       location: "Bangalore, India",
       description:
@@ -40,7 +40,7 @@ export default function EventsPage() {
     },
     {
       title: "ZK Witness Mumbai",
-      date: "August 15, 2024",
+      date: "August 06, 2025",
       time: "4:00 PM IST",
       location: "Mumbai, India",
       description:
@@ -177,7 +177,7 @@ export default function EventsPage() {
                     </div>
                   </div>
                   <div className="mt-4">
-                    <Button className="bg-[#BC6C25] hover:bg-[#283618] text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 w-full sm:w-fit font-mono">
+                    <Button className="bg-[#BC6C25] hover:bg-[#283618] text-white cursor-pointer font-semibold py-2 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 w-full sm:w-fit font-mono">
                       <span> &gt; Register Now</span>
                       <ArrowRight className="w-4 h-4" />
                     </Button>
