@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import poster1 from "../../assets/poster1.png"; 
 import { useState } from "react";
+import zkwitnesschennai from "../../assets/zk-witness-chennai.jpeg"
 
 export default function EventsPage() {
   const [isVisible, setIsVisible] = useState(true);
@@ -69,7 +70,7 @@ export default function EventsPage() {
       location: "Chennai, India",
       description:
         "A beginner-friendly introduction to the world of zero-knowledge proofs. Talk sessions, networking, and fun quizzes.",
-      image: poster1,
+      image: zkwitnesschennai,
       tags: ["COMMUNITY", "TALKS"],
       attendees: "15",
       poapLink: "https://poap.gallery/drops/191075",
@@ -223,15 +224,17 @@ export default function EventsPage() {
           {pastEvents.map((event, index) => (
             <motion.div key={index} variants={cardVariants}>
               <Card className="flex flex-col md:flex-row bg-[#FFFBF0] md:h-[300px] max-w-5xl mx-auto overflow-hidden border border-[#DDA15E]/20 shadow-md p-0">
-                <div className="relative w-full md:w-[300px] h-[220px] md:h-[300px]">
-                  <Image
-                    src={event.image}
-                    alt={event.title}
-                    fill
-                    className="object-cover grayscale hover:grayscale-0 transition"
-                    sizes="(max-width: 768px) 100vw, 300px"
-                  />
-                </div>
+     <div className="relative md:w-[400px] w-full h-[220px] md:h-[300px] flex-shrink-0">
+  <Image
+    src={event.image}
+    alt={event.title}
+    fill
+    className="object-contain "
+    sizes="(max-width: 768px) 100vw, 400px"
+    priority
+  />
+</div>
+
 
                 <div className="flex flex-col justify-between p-6 flex-1">
                   <div>
