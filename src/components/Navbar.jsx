@@ -70,12 +70,12 @@ function Navbar() {
           <div className="hidden md:flex">
             <div className="flex gap-3">
               {navItems.map((item) => (
-                <Link key={item.name} href={item.path} passHref legacyBehavior>
+                <Link key={item.name} href={item.path} passHref>
                   <Button
                     asChild
                     variant="ghost"
                     size="sm"
-                    className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-poppins font-extrabold"
+                    className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-poppins font-semibold"
                   >
                     <a>{item.name}</a>
                   </Button>
@@ -115,12 +115,12 @@ function Navbar() {
         <div className="hidden md:flex">
           <div className="flex gap-3">
             {navItems.map((item) => (
-              <Link key={item.name} href={item.path} passHref legacyBehavior>
+              <Link key={item.name} href={item.path} passHref >
                 <Button
                   asChild
                   variant="ghost"
                   size="sm"
-                  className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-poppins transition-all duration-300 font-extrabold"
+                  className="text-[#283618] hover:bg-[#283618]/10 border border-transparent hover:border-[#606C38] font-poppins transition-all duration-300 font-semibold"
                 >
                   <a>{item.name}</a>
                 </Button>

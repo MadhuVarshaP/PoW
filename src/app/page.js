@@ -31,8 +31,6 @@ export default function Component() {
   const valuesRef = useRef(null);
   const archiveRef = useRef(null);
 
-  // Set once:true to avoid retriggering animations when scrolling back
-  // Set threshold for better control of when animations trigger
   const heroInView = useInView(heroRef, { once: true, threshold: 0.1 });
   const aboutInView = useInView(aboutRef, { once: true, threshold: 0.1 });
   const valuesInView = useInView(valuesRef, { once: true, threshold: 0.1 });
@@ -245,9 +243,13 @@ export default function Component() {
                   <div className="relative group bg-[#FFFBF0] rounded-xl border-2 border-[#BC6C25]/20 hover:border-[#BC6C25]/40 p-5 transition-shadow duration-300 overflow-hidden h-[200px] flex flex-col">
                     <div className="flex items-center justify-between mb-4">
                       <div
-                        className={`w-12 h-12 rounded-full bg-gradient-to-r ${activity.color} flex items-center justify-center shadow-md`}
+                        className={`w-12 h-12 rounded-full bg-gradient-to-r from-[#BC6C25] to-[#283618] flex items-center justify-center shadow-md transform transition-transform duration-200 ease-in-out hover:scale-110 hover:rotate-[1.5deg]`}
                       >
-                        <activity.icon className="w-6 h-6 text-white" />
+                        {/* <activity.icon className="w-6 h-6 text-white" /> */}
+                        <activity.icon
+                          className="w-6 h-6 text-white transform transition-transform duration-200 ease-in-out hover:scale-110 hover:rotate-[1.5deg]"
+                        />
+
                       </div>
                       <div className="text-xs font-bold text-[#BC6C25] bg-[#BC6C25]/10 px-3 py-1 rounded-full">
                         {String(index + 1).padStart(2, "0")}
@@ -387,13 +389,13 @@ export default function Component() {
                     </span>
                     <span>
                       <TypingLine
-                        text="ZK Witness Chennai/"
+                        text="ZK Witness Pondy/"
                         delay={400}
                         speed={100}
                       />
                     </span>
                     <span className="text-[#DDA15E]">
-                      <TypingLine text="June 21" delay={900} speed={100} />
+                      <TypingLine text="July 12" delay={900} speed={100} />
                     </span>
                   </div>
                   <div className="flex justify-between">
@@ -408,7 +410,7 @@ export default function Component() {
                       />
                     </span>
                     <span className="text-[#DDA15E]">
-                      <TypingLine text="July 10" delay={3400} speed={100} />
+                      <TypingLine text="July 27" delay={3400} speed={100} />
                     </span>
                   </div>
                   <div className="flex justify-between">
@@ -423,7 +425,7 @@ export default function Component() {
                       />
                     </span>
                     <span className="text-[#DDA15E]">
-                      <TypingLine text="August 15" delay={6700} speed={100} />
+                      <TypingLine text="August 06" delay={6700} speed={100} />
                     </span>
                   </div>
                 </div>
@@ -451,6 +453,9 @@ export default function Component() {
               <Button
                 size="lg"
                 className="bg-[#BC6C25] hover:bg-[#606C38] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 font-poppins"
+              onClick={() =>
+                  window.open("https://github.com/Proof-Of-Witness", "_blank")
+                }
               >
                 <IoLogoGithub className="w-4 h-4 mr-2" />
                 Follow the Trail
