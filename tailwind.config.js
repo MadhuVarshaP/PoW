@@ -99,9 +99,9 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
        fontFamily: {
-        poppins: ['var(--font-poppins)'],
-        display: ['var(--font-playfair)'],
-        mono: ['var(--font-jetbrains)'],
+        poppins: ['Poppins', 'sans-serif'],
+        display: ['var(--font-display)'],
+        mono: ['JetBrains Mono', 'monospace'],
         murqas: ['Murqas', 'sans-serif'],
       },
     },
