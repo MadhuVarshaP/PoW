@@ -208,10 +208,10 @@ export default function ContactPage() {
                 For detailed inquiries and partnerships
               </p>
               <a
-                href="mailto:contact@proofofwitness.com"
+                href="mailto:proofofwitness@gmail.com"
                 className="text-[#BC6C25] font-medium hover:underline"
               >
-                contact@proofofwitness.com
+                proofofwitness@gmail.com
               </a>
             </Card>
 

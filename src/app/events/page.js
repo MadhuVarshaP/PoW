@@ -16,38 +16,29 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import poster1 from "../../assets/poster1.png"; 
+import zkpostercbe from "../../assets/zk-cbe-poster.png";
 import { useState } from "react";
 import zkwitnesschennai from "../../assets/zk-witness-chennai.jpeg"
-
+import zkwitnesspondy from "../../assets/zk-witness-pondy.jpeg"
+import Link from "next/link";
 export default function EventsPage() {
   const [isVisible, setIsVisible] = useState(true);
 
   const events = [
     {
-      title: "ZK Witness Pondy",
-      date: "July 13, 2025",
+      title: "ZK Witness Coimbatore",
+      date: "August 3, 2025",
       time: "11:00 AM IST",
-      location: "Pondicherry, India",
+      location: "Coimbatore, India",
       description:
         "Deep dive into zero-knowledge proofs and their applications in Web3. Learn from industry experts and network with fellow developers.",
-      image: poster1,
-      tags: ["WORKSHOP", "TECHNICAL"],
-      attendees: "50+",
+      image: zkpostercbe,
+      tags: ["2 TALKS + 1 WORKSHOP"],
+      attendees: "30+",
       status: "Open",
+      register: "https://lu.ma/n3xv1n3z",
     },
-    {
-      title: "ZK Witness Bangalore",
-      date: "July 27, 2025",
-      time: "3:00 PM IST",
-      location: "Bangalore, India",
-      description:
-        "Hands-on session on implementing ZK-SNARKs in your applications. Build real-world projects with guided mentorship.",
-      image: poster1,
-      tags: ["HANDS-ON", "DEVELOPMENT"],
-      attendees: "75+",
-      status: "Filling Fast",
-    },
+
     // {
     //   title: "ZK Witness Mumbai",
     //   date: "August 06, 2025",
@@ -63,6 +54,18 @@ export default function EventsPage() {
   ];
 
   const pastEvents = [
+       {
+      title: "ZK Witness Pondicherry",
+      date: "July 19, 2025",
+      time: "6:00 PM IST",
+      location: "Pondicherry, India",
+      description:
+        "A beginner-friendly introduction to the world of zero-knowledge proofs. Talk sessions, networking, and fun quizzes.",
+      image: zkwitnesspondy,
+      tags: ["3 TALKS + 1 WORKSHOP"],
+      attendees: "20",
+      poapLink: "https://poap.gallery/drops/191760",
+    },
     {
       title: "ZK Witness Chennai",
       date: "June 21, 2025",
@@ -71,10 +74,11 @@ export default function EventsPage() {
       description:
         "A beginner-friendly introduction to the world of zero-knowledge proofs. Talk sessions, networking, and fun quizzes.",
       image: zkwitnesschennai,
-      tags: ["COMMUNITY", "TALKS"],
+      tags: ["2 TALKS + 1 WORKSHOP"],
       attendees: "15",
       poapLink: "https://poap.gallery/drops/191075",
-    },
+    }
+  
   ];
 
   const containerVariants = {
@@ -145,8 +149,8 @@ export default function EventsPage() {
                   <div className="absolute top-4 right-4 z-20">
                     <span
                       className={`px-3 py-2 rounded-lg text-xs font-bold ${event.status === "Filling Fast"
-                          ? "bg-red-500"
-                          : "bg-green-500"
+                        ? "bg-red-500"
+                        : "bg-green-500"
                         } text-white`}
                     >
                       {event.status}
@@ -196,10 +200,17 @@ export default function EventsPage() {
                     </div>
                   </div>
                   <div className="mt-4">
-                    <Button className="bg-[#BC6C25] hover:bg-[#283618] text-white font-semibold py-2 px-6 rounded-lg flex items-center gap-2 w-full sm:w-fit font-mono">
-                      <span>&gt; Register Now</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </Button>
+                    <a
+                      href={event.register}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-fit"
+                    >
+                      <Button className="bg-[#BC6C25] hover:bg-[#283618] text-white font-semibold py-2 px-6 rounded-lg flex items-center gap-2 w-full sm:w-fit font-mono">
+                        <span>&gt; Register Now</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </Button>
+                    </a>
                   </div>
                 </div>
               </Card>
@@ -224,16 +235,16 @@ export default function EventsPage() {
           {pastEvents.map((event, index) => (
             <motion.div key={index} variants={cardVariants}>
               <Card className="flex flex-col md:flex-row bg-[#FFFBF0] md:h-[300px] max-w-5xl mx-auto overflow-hidden border border-[#DDA15E]/20 shadow-md p-0">
-     <div className="relative md:w-[400px] w-full h-[220px] md:h-[300px] flex-shrink-0">
-  <Image
-    src={event.image}
-    alt={event.title}
-    fill
-    className="object-contain "
-    sizes="(max-width: 768px) 100vw, 400px"
-    priority
-  />
-</div>
+                <div className="relative md:w-[400px] w-full h-[220px] md:h-[300px] flex-shrink-0">
+                  <Image
+                    src={event.image}
+                    alt={event.title}
+                    fill
+                    className="object-contain "
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    priority
+                  />
+                </div>
 
 
                 <div className="flex flex-col justify-between p-6 flex-1">
@@ -300,9 +311,11 @@ export default function EventsPage() {
               🎉 Don’t miss new ZK events!
             </span>
 
+            <Link href="https://t.me/+TPdx_Fc5_ONmNGJl">
             <Button className="bg-[#606C38] text-[#FEFAE0] px-5 py-1.5 rounded-full text-xs uppercase tracking-wide font-mono border border-[#283618] hover:bg-[#283618] hover:text-white transition">
               Join Community
             </Button>
+            </Link>
 
             <button
               onClick={() => setIsVisible(false)}

@@ -389,13 +389,13 @@ export default function Component() {
                     </span>
                     <span>
                       <TypingLine
-                        text="ZK Witness Pondy/"
+                        text="ZK Witness Chennai/"
                         delay={400}
                         speed={100}
                       />
                     </span>
                     <span className="text-[#DDA15E]">
-                      <TypingLine text="July 12" delay={900} speed={100} />
+                      <TypingLine text="June 21" delay={900} speed={100} />
                     </span>
                   </div>
                   <div className="flex justify-between">
@@ -404,13 +404,13 @@ export default function Component() {
                     </span>
                     <span>
                       <TypingLine
-                        text="ZK Witness Bangalore/"
+                        text="ZK Witness Pondicherry/"
                         delay={2800}
                         speed={100}
                       />
                     </span>
                     <span className="text-[#DDA15E]">
-                      <TypingLine text="July 27" delay={3400} speed={100} />
+                      <TypingLine text="July 19" delay={3400} speed={100} />
                     </span>
                   </div>
                   <div className="flex justify-between">
@@ -419,13 +419,13 @@ export default function Component() {
                     </span>
                     <span>
                       <TypingLine
-                        text="ZK Witness Mumbai/"
+                        text="ZK Witness Coimbatore/"
                         delay={6100}
                         speed={100}
                       />
                     </span>
                     <span className="text-[#DDA15E]">
-                      <TypingLine text="August 06" delay={6700} speed={100} />
+                      <TypingLine text="August 3" delay={6700} speed={100} />
                     </span>
                   </div>
                 </div>
